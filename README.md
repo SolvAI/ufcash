@@ -1,221 +1,165 @@
-# UFCash
+<div align="center">
 
-**Can a model built by an LLM agent beat the UFC betting market?**
+# 🥊 UFCash
 
-At picking winners, only just. On the 2024–2026 hold-out (1,501 fights) it picks 70.2 % of winners, the same as the closing line, with a
-slightly better log-loss (0.582 vs 0.584). Betting its picks at closing prices breaks even (+0.7 %). The one rule that made money on paper is
-**value betting at the opening line: +24 % on 226 hold-out bets (95 % CI +11 % to +37 %), positive in all 11 years**, and +11 % if the bet is
-only filled halfway to the closing price. Opening lines are one bookmaker's first price, often with low limits and moved within minutes, so
-whether that edge can actually be collected is unproven.
+### A UFC model that beat the bookmakers' opening lines: +24 % ROI on 226 bets it had never seen.
 
-This is research code, not betting advice. Nothing here was bet with real money.
+**+24 % ROI out of sample (95 % CI +11 % to +37 %)** · **positive in 11 of 11 years** · **70.2 % winner accuracy, level with Vegas' closing line**
 
-UFCash predicts the winner of UFC bouts from leakage-free pre-fight information: each fighter's full UFC
-round-by-round history, full pro record across all promotions, rating systems, physical data, official
-rankings, and the betting market. `models/final.joblib` is the final model, trained on every fight up to 2026-10-31.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Python 3.12](https://img.shields.io/badge/python-3.12-3776ab)
+![Platforms](https://img.shields.io/badge/runs%20on-Windows%20%7C%20macOS%20%7C%20Linux-555)
+![Hold-out ROI](https://img.shields.io/badge/hold--out%20ROI-%2B24%25-2ea043)
+![Leakage audit](https://img.shields.io/badge/leakage%20audit-passed-2ea043)
 
-## Result
+**One line to install. Put in the card, get the picks and the value bets.**
 
-Walk-forward backtest: every January 1 the model is retrained on all earlier fights and then predicts
-that whole year blind. All model and feature choices were made on 2016–2023. 2024–2026 is the hold-out.
+</div>
+
+| Value bets at the opening line (edge > 10 %) | Bets | Won | ROI | 95 % CI |
+|---|---:|---:|---:|---|
+| 2016–2023 (where the 10 % threshold was chosen) | 580 | 59 % | +22.5 % | +14.5 % to +30.9 % |
+| **2024 → Oct 2026 hold-out** | **226** | **58 %** | **+24.1 %** | **+11.0 % to +37.2 %** |
+| Hold-out with each bet filled only halfway from the opening to the closing price | 226 | | +11.2 % | |
+
+The $10,000 paper-bankroll version (quarter Kelly, $500 max bet, halfway fills) ends 2024–2026 at **+$10.7k**, with a worst drawdown of 15 %.
+Its bets also beat the closing line by 15 % of expected value, which is the signal professional bettors trust more than results alone.
+
+## Try it
+
+**macOS / Linux**
+```sh
+curl -LsSf https://raw.githubusercontent.com/SolvAI/ufcash/main/install.sh | sh
+cd ufcash && ./ufcash card
+```
+
+**Windows** (PowerShell)
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://raw.githubusercontent.com/SolvAI/ufcash/main/install.ps1 | iex"
+cd ufcash; .\ufcash card
+```
+
+The installer brings its own Python and the trained model, then downloads the public UFC data (about 1 minute). Put your card in
+`data/upcoming.csv`: fighters as named on ufcstats.com, plus the American moneylines you can bet right now. Then run `ufcash card`:
+
+```text
+UFCash card  (model trained on every UFC fight up to 2026-10-31)
+
+  2026-12-12  Marvin Vettori vs Roman Kopylov  (Middleweight)
+      pick Marvin Vettori 54%   red win: model 54.1%, stats-only 53.2%, market 52.2%
+  2026-12-12  Payton Talbott vs Marcus McGhee  (Bantamweight)
+      pick Payton Talbott 67%   red win: model 66.7%, stats-only 81.5%, market 57.4%
+      VALUE BET  Payton Talbott at 1.67  edge +19%  stake 5.0% of bankroll (quarter Kelly)
+  2026-12-12  Johnny Walker vs Anthony Wint  (Heavyweight)
+      pick Anthony Wint 61%   red win: model 38.8%, stats-only 45.4%, market 38.6%
+
+1 value bet. Saved to results/upcoming_predictions.csv
+```
+<sub>Real output for the demo card that ships in `data/upcoming.csv` (hypothetical matchups and odds: replace them with a real card).</sub>
+
+Run `ufcash setup` again before each event to pull the latest results.
+
+## Why it works
+
+- **It knows every fighter's whole career.** About 470 pre-fight features: round-by-round UFC stats adjusted for opponent, the full
+  pro record across all promotions (373k fights), several Elo and Glicko ratings, physicals, rankings and market history.
+- **It's built like an audit, not a Kaggle notebook.** Public UFC models that report 67–70 % mostly leak the answer: before 2010
+  ufcstats lists the winner first, blank reach marks short careers, and random splits let the model see a fighter's future. Here
+  every feature uses only fights strictly before the bout, every number is walk-forward, and an audit rebuilds every feature with
+  the future scrambled. It changed 0 of 461 columns.
+- **It strikes early in the week.** Opening lines are one bookmaker's first guess. The opening-line model blends that price with the
+  stats model (weights 0.71 / 0.60), and it bets when the two disagree by more than 10 %. Edges above 30 % are skipped, because they
+  are almost always a bad line, such as names swapped.
+
+---
+
+## ⚠️ Read this before you bet a real dollar
+
+- **Paper results only.** Nothing here was bet with real money.
+- **Opening lines are hard to get.** The opening price is one book's first line. It often has low limits and moves within minutes.
+  If you get only halfway to the closing price, the edge falls from +24 % to +11 %. Winning accounts get limited.
+- **Small samples.** That's 226 hold-out bets, or about 80 a year. The lower end of the interval (+11 %) is still positive, but
+  luck is a big part of any single year.
+- **Closing-line bets don't pay.** Betting the model's picks at the close breaks even (+0.7 %, 1,483 bets), and value bets at the
+  close (+10 %) are not significant. The edge is at the open.
+- Paper-trade first, record the price you actually got, and track your closing-line value.
+
+## The full record
+
+Walk-forward: every January 1 the model is retrained on all earlier fights, then it predicts that whole year blind. All model and
+feature choices were made on 2016–2023, and 2024–2026 is the hold-out.
 
 | Hold-out: 1,501 UFC fights, 2024-01-13 → 2026-10-31 | Accuracy | Log-loss |
 |---|---|---|
 | Always pick the red corner | 55.2 % | – |
 | World Elo (all ~373k pro MMA fights) | 56.8 % | 0.678 |
-| **Stats model only** (no odds) | **66.0 %** | 0.612 |
+| Stats model only (no odds) | 66.0 % | 0.612 |
 | Betting market (closing line, margin removed) | 70.2 % | 0.584 |
-| **Final model** (stats ensemble + market) | **70.2 %** (70.4 % on the 1,488 fights with odds) | **0.582** |
+| **Final model** (stats ensemble + market) | **70.2 %** | **0.582** |
 
-Dev period 2016–2023 (3,855 fights): final 66.4 %, market 65.8 %, stats-only 64.2 %.
-The final model beat the closing line in 7 of 11 years, and its log-loss beats the market in both periods.
-It is calibrated: picks made at 70–75 % confidence won 73.1 % of the time in the hold-out
-(see `results/metrics.json`).
+- The model beats the closing line's log-loss on both dev and hold-out, and it beat the closing line in 7 of 11 years.
+- It is calibrated: picks made at 70–75 % confidence won 73.1 % of the time.
+- The hold-out was kind to favourites. They won 70.2 % while their odds implied 67.2 %, so expect about 67–69 % accuracy going forward.
+- **75 % accuracy?** Not on every fight: no public-data model gets there, since the model disagrees with the market on only 55 of 1,501
+  fights. If it may skip fights, it gets 76.5 % on 62 % of them, but the favourite alone does as well on those.
 
-**Honest caveats**
-- The 95 % confidence interval on 1,501 fights is about ±2.3 points. The edge over the closing line is real in
-  log-loss on both dev and test, but in accuracy it is small (≈ +0.2 points on test, +0.6 on dev).
-  Almost all of the "70 %" comes from the betting market. The model adds a little on top of it.
-- **The hold-out period was kind to favourites.** In 2024–26 the betting favourite won 70.2 % of fights, while the
-  odds themselves implied 67.2 % (z = 2.5). In 2016–23 it won 65.8 % vs 64.7 % implied. If that is luck rather than a
-  lasting change, expect roughly **67–69 %** going forward, not 70 %.
-- Without odds the model scores 66 % on recent fights, which is the fair number to compare with stats-only
-  projects.
+| Betting strategy (2024–26 hold-out, real BestFightOdds prices) | Bets | ROI [95 % CI] |
+|---|---:|---|
+| Bet the model's pick in every fight, average closing book | 1,483 | +0.7 % [−2.8, +4.2] |
+| Value bets at the close (edge > 5 %) | 168 | +10.1 % [−8, +28] |
+| **Value bets at the opening line (edge > 10 %)** | **226** | **+24.1 % [+11, +37]** |
 
-## Verification (`src/audit.py`)
+<details>
+<summary><b>Leakage audit (<code>src/audit.py</code>)</b></summary>
 
 | Test | What it would catch | Result |
 |---|---|---|
-| `scramble <date>`: randomise every result, stat, odds line and pro-record result on/after a cutoff (1,304 UFC bouts and 39,555 pro fights for 2024-06-01; 4,029 and 124,573 for 2019-01-19), rebuild all features from scratch | any feature that sees the result of the bout itself or a later one | 0 of 461 feature columns changed for any bout on/before either cutoff (incl. the cutoff night); 345 changed after it |
+| `scramble <date>`: randomise every result, stat, odds line and pro-record result on/after a cutoff, rebuild all features | any feature that sees the result of the bout itself or a later one | 0 of 461 feature columns changed for any bout on/before either cutoff (2019-01-19, 2024-06-01) |
 | `null`: same pipeline on labels shuffled within each year | accuracy created by the pipeline itself | 53.8–54.9 % (always-red on the same labels: 55.2 %) |
-| `static`: Sherdog vs ufcstats date for all 8,974 linked bouts | a pro-record update dated before the UFC bout | 0 dated earlier |
-| `static`: official ranking boards | rankings published after the fight | all boards dated before the event |
-| `static`: three odds sources | mis-joined or post-fight odds | correlation ≥ 0.99, favourite accuracy 69.5–69.9 % on the same fights |
-| `static`: missing values and duplicate bouts | blanks that mark short careers, the same fight counted twice | no outcome-revealing missingness; the only repeated pairings are real rematches after a no-contest |
+| `static`: Sherdog vs ufcstats dates for 8,974 linked bouts | a pro-record update dated before the UFC bout | 0 dated earlier |
+| `static`: ranking boards, three odds sources, missing values, duplicates | post-fight rankings, mis-joined odds, outcome-revealing blanks | all clean (odds sources agree at r ≥ 0.99) |
 
-The audit found one weak spot, now fixed. Imputed reach values had decimals, while real ones are whole inches, so a model
-could in principle spot "imputed = short career". They are now rounded. Log-loss was unchanged (0.5816), so the
-model was not exploiting it. Accuracy moved by 2 fights out of 1,501.
+</details>
 
-## Can it reach 75 %?
+<details>
+<summary><b>What did not work</b></summary>
 
-Not on all fights, and no honest public-data model will. On the hold-out the model needs 69 more correct picks to reach 75 %.
-It only picks against the betting favourite in 55 fights, so even winning every disagreement falls short. Reaching
-75 % would mean overruling the closing line in hundreds of fights and being right most of the time, which would be a
-large betting edge.
+- **Underdog specialists trained for profit**: in 40 simulated no-edge worlds, picking the best of them shows +9 % from selection alone. Their +15 % is luck.
+- **More information**: pre-UFC round stats, media and judges' scorecards, Wikidata profiles, and style matchups. None beat the closing line beyond noise.
+- **Former-USSR fighters** beat their odds by about 4 points, but after the margin that's only about 0–3 %.
 
-Tried after the first version, all evaluated on 2016–23 only, none moved dev accuracy or log-loss beyond noise:
-- pre-UFC round stats for debutants from 7,100 non-UFC fights (DWCS, PRIDE, PFL, ACA, Cage Warriors, Oktagon, ...)
-- media scorecards (deserved record, decision luck) and judges' round share (`src/canon_extra.py`, `src/exp6_newinfo.py`)
-- recency-weighted and opening-line stackers
+</details>
 
-None of these features is significant beyond the closing line once multiple testing is accounted for.
+## For developers
 
-75 % is reachable if the model may **skip fights**. With a confidence threshold of 64.5 % chosen on 2016–23, the hold-out
-accuracy was **76.5 % ± 2.7 on 62 % of fights** (80.8 % on 41 % at a 70.5 % threshold). This is mostly the easy-favourite
-effect: the bookmaker's favourite alone, with the same rule, got 78.1 % on 57 % of fights.
+```
+ufcash.py             command line: setup (download + features), card (predict data/upcoming.csv)
+src/build_data.py     ufcstats mirror -> fights, per-fighter stats (+ data/upcoming.csv)
+src/odds.py           closing/opening lines + rankings from 3 sources
+src/canon_feats.py    pro-career features + world Elo from fight-canon-db
+src/features.py       leakage-free pre-fight features (~470 columns)
+src/final_model.py    stats ensemble (LightGBM x2, XGBoost, CatBoost, logistic) + market stacker
+src/train_final.py    fit on all fights -> models/final.joblib (closing-line and opening-line stackers)
+src/predict.py        picks + value bets for data/upcoming.csv
+src/evaluate.py       walk-forward backtest -> results/metrics.json
+src/betting.py        betting backtest vs real prices -> results/betting_report.json
+src/audit.py          leakage audit
+```
 
-## Betting backtest (`src/betting.py`)
+`./run_pipeline.sh --refresh` reruns everything, including the backtests. `results/walkforward_predictions.csv` holds the model's
+out-of-sample probabilities for 5,356 fights 2016–2026, with the odds and results removed.
 
-Real BestFightOdds prices, bookmaker margin included (about 4–4.5 % at an average book). Walk-forward probabilities,
-strategy thresholds read off 2016–23, results for 2024–26 out of sample. ROI = profit / amount staked.
+Sibling project: [Turfolio](https://github.com/SolvAI/turfolio), a French horse-racing model with +4.8 % on 1,069 out-of-sample place bets.
 
-| Strategy (2024–26 hold-out) | Bets | ROI [95 % CI] |
-|---|---|---|
-| Bet the model's pick in every fight, average closing book | 1,483 | +0.7 % [−2.8, +4.2] |
-| Same, stake growing with confidence | 1,483 | +0.4 % [−2.7, +3.2] |
-| Only when the model picks the underdog | 55 | +5.7 % [−23, +32] |
-| Value bets at the close (edge > 5 %), average book | 168 | +10.1 % [−8, +28] |
-| **Value bets at the opening line (edge > 10 %), opening-line model** | **226** | **+24.1 % [+11, +37]** |
-| … filled only halfway from the opening to the closing price | 226 | +11.2 % |
+## Data and license
 
-- Accuracy is not profit. Picks and confidence are already priced in, so betting the 70 % model's picks at closing prices breaks even before the margin.
-- Closing-line value bets were profitable in 2016–23, but on the hold-out that result is not significant. It loses money without its 10 biggest wins, and almost all of it comes from 2025.
-- The opening-line model (the same stacker refit with the opening line as its only market input) was positive in all 11 years. Its bets
-  beat the closing line by +9 % (dev) and +15 % (test) of expected value, which is a much less noisy signal of a real edge than results alone.
-  With a $10,000 bankroll, quarter-Kelly stakes, a $500 maximum bet and halfway fills, it made +$10.7k over 2024–26 (max drawdown 15 %).
-- A bet-time rule skips any edge above 30 %. Such lines are almost always bad data (for example, openers posted with the names swapped) and would be voided.
-- Unproven in practice: BFO's opening price is one book's first line, often with low limits and moved within minutes. Winning accounts
-  get limited. Paper-trade first, record the price you actually got, and track closing-line value.
-
-### Underdog specialist trained for profit (`src/underdog.py`)
-
-Six models were trained only on underdog bets, refit every year. Some are probability models (market bias only, a small
-logistic regression, LightGBM boosted from the price). Others optimise money directly (expected-profit regression, a
-classifier with wins weighted by the payout, and a Kelly-growth stake policy).
-
-- Betting every underdog loses: −9 % (2016–23) and −15 % (2024–26). Longshots are overbet.
-- At the close, the best model on 2016–23 made +15 %, then +5 % on 2024–26 [−21, +33]. All results lose money without their 10 biggest wins.
-- In 40 simulated worlds with no edge at all, picking the best of these models on 2016–23 still shows +9 % (median) and +23 % (95th percentile).
-  The real +15 % is within that range, so it is selection luck.
-- The profit-objective models did worse than the probability models. Fed only payouts, the Kelly policy learned to stop betting underdogs from 2020 on.
-- At the opening line, none of the specialists beat the general opening-line model restricted to underdogs (2024–26: +28 %, 89 bets).
-  That is a subset of the opening-line strategy above, not a new edge.
-
-### Fighter profiles and matchups (`src/exp7_profile.py`, 2016–23 only)
-
-- Data: Wikidata entries for 2,609 UFC fighters, matched by Sherdog id. Fields: citizenship, birthplace, martial-arts background, education.
-- Trap: the snapshot is written after the fact. When only the red corner has an entry, red wins 80 % against 62 % implied, because entries
-  exist for fighters who went on to win. Entry existence and completeness are never used, and the test runs only on fights where both fighters have one.
-- Region, home country, background and education change log-loss by −0.0007 [−0.0037, +0.0021], and accuracy drops 0.656 → 0.653. No gain.
-- Former-USSR fighters beat their closing odds (59–62 % wins against 56–57 % implied). This also holds with a definition built without Wikidata,
-  from where their earlier fights took place. Betting them blindly still returns only −0.2 % to +3 % ± 9–14 % after margin.
-- Style-vs-style matchups (8 k-means styles) change log-loss by −0.0004 [−0.0007, +0.0001]. A fighter's own record against a given style adds nothing:
-  there are too few fights per fighter per style. The stats model already has style-matchup terms.
-
-## Why this is more trustworthy than the reference repos
-
-The rezan21 / Kaggle `data.csv` projects report about 67–70 %, but much of that comes from leakage:
-
-1. **Corner leakage.** Before 2010, ufcstats lists the **winner first**, so "red" wins 100 % of pre-2010 fights.
-   The old Kaggle baseline "67 % red wins" is mostly this artifact. Here, corner is only used as a feature
-   from 2010 onward. Since then, red wins about 57 % of fights.
-2. **Missing-value leakage.** ufcstats leaves reach, date of birth, and stance blank mostly for fighters
-   who had short careers. In 2010+ fights, a fighter with no listed reach won only **20 %** of the time.
-   The blank is effectively a label. It is hidden with deterministic stochastic imputation (`features.py: impute_physical`).
-3. **Random train/test splits** let a model learn from a fighter's future. Here every feature uses only
-   fights on dates strictly before the bout (same-night tournament fights included), every model is
-   evaluated walk-forward, and both corner orientations are trained and averaged so the model is symmetric.
-
-## Data (all public, refreshed by `./run_pipeline.sh --refresh`)
+Code and model weights are MIT (see `LICENSE`). **No data is included**: the installer downloads it from these public sources, each under its own license.
 
 | Source | What | License |
 |---|---|---|
-| [Greco1899/scrape_ufc_stats](https://github.com/Greco1899/scrape_ufc_stats) | ufcstats.com mirror: events, results, round-by-round stats, fighter attributes (1994–2026-10-31) | GPL-3.0 |
-| [Jadevit/fight-canon-db](https://github.com/Jadevit/fight-canon-db) | 373k pro MMA fights (Sherdog records, all promotions), BestFightOdds lines 2007+ | MIT |
-| [nlbair/ufc-data](https://github.com/nlbair/ufc-data) (Bair 2026, doi:10.5281/zenodo.23458636) | BestFightOdds opening + closing ranges, official rankings at fight time (2013–2026-10) | CC BY 4.0 |
-| [shortlikeafox/ultimate_ufc_dataset](https://github.com/shortlikeafox/ultimate_ufc_dataset) | second odds source and method-of-victory props (2010–2026-03) | Apache-2.0 |
+| [Greco1899/scrape_ufc_stats](https://github.com/Greco1899/scrape_ufc_stats) | ufcstats.com mirror: events, results, round-by-round stats, fighter attributes | GPL-3.0 |
+| [Jadevit/fight-canon-db](https://github.com/Jadevit/fight-canon-db) | 373k pro MMA fights (Sherdog records), BestFightOdds lines 2007+ | MIT |
+| [nlbair/ufc-data](https://github.com/nlbair/ufc-data) (Bair 2026, doi:10.5281/zenodo.23458636) | BestFightOdds opening + closing ranges, official rankings | CC BY 4.0 |
+| [shortlikeafox/ultimate_ufc_dataset](https://github.com/shortlikeafox/ultimate_ufc_dataset) | second odds source and method-of-victory props | Apache-2.0 |
 
-Underlying facts come from ufcstats.com, Sherdog, BestFightOdds, MMA Decisions, and martj42/ufc-rankings.
-
-## Features (~470 columns per bout, all computed pre-fight)
-
-- **UFC record and form:** W/L by method, streaks, last-3/5 form, finishes and being finished, KO losses in the last 2 years, title and 5-round experience, layoff, activity, weight-class changes.
-- **Striking and grappling per minute**, career totals and recency-weighted, shrunk toward population priors:
-  accuracy/defence, head/body/leg and distance/clinch/ground mix, takedowns, control, submissions, knockdowns.
-- **Opponent-adjusted output:** what the fighter landed or absorbed compared with what each opponent normally
-  allowed or landed before that fight.
-- **Round splits:** round-1 vs. late-round output (cardio/fade) and accumulated head-strike damage.
-- **Rating systems:** Elo (several K values), margin-of-victory Elo, Glicko, and "skill Elos" scored on
-  strike share, grappling share, and damage share, plus a **world Elo over all ~373k pro MMA fights**.
-- **Full pro record (Sherdog):** pro fights, opponent quality, best wins, pre-UFC record, home-country share, head-to-head history.
-- **Market history:** how the closing line rated the fighter in past fights and how they did against that expectation.
-- **Physical, style, and bout context:** age, height, reach, ape index, stance matchup, style-matchup products, rankings, card position, rounds, title, gender, division.
-- **Market:** closing line (3 sources), opening line, line movement, book disagreement.
-
-## Model (`src/final_model.py`)
-
-1. **Stats ensemble (no odds):** LightGBM ×2, XGBoost, CatBoost, and L2 logistic regression, trained on
-   both corner orientations since 2001. Output: mean logit.
-2. **Market stacker:** average of (a) logistic regression on [logit closing line, stats logit], fit on
-   out-of-fold stats predictions, and (b) a small LightGBM boosted from the closing-line logit that learns
-   systematic market errors (mostly age, corner, damage absorbed, opponent quality). Fights without odds fall back to the stats ensemble.
-
-## Usage
-
-```bash
-pip install -r requirements.txt
-./run_pipeline.sh --refresh    # download data, build features, backtest, train, predict
-# or, with data already present:
-SKIP_EVAL=1 ./run_pipeline.sh  # rebuild + train + predict only
-cd src && python audit.py static && python audit.py null && python audit.py scramble 2024-06-01   # leakage audit
-```
-
-To predict a card, edit `data/upcoming.csv` (fighter names as on ufcstats, plus American moneylines if you
-have them) and run the pipeline. Predictions go to `results/upcoming_predictions.csv`. The rows shipped
-there are hypothetical demo matchups. Odds matter a lot: without them the model falls back to its 66 % stats-only mode.
-
-## Layout
-
-```
-src/build_data.py     ufcstats mirror -> data/processed/{fights,fighter_fights,fighters}.parquet
-src/odds.py           odds + rankings from 3 sources, oriented to the red corner
-src/canon_feats.py    pro-career features + world Elo from fight-canon-db
-src/features.py       chronological pre-fight feature builder
-src/common.py         symmetric design matrices, metrics
-src/final_model.py    the final model
-src/evaluate.py       walk-forward backtest -> results/metrics.json, results/walkforward_predictions.csv
-src/train_final.py    fit on all fights -> models/final.joblib
-src/predict.py        predict data/upcoming.csv
-src/betting.py        betting backtest vs real prices -> results/betting_report.json
-src/underdog.py       underdog-only models trained for profit, with a no-edge null -> results/underdog_report.json
-src/exp7_profile.py   Wikidata profiles + style matchups (dev only; no gain) -> results/profile_run.log
-src/audit.py          leakage audit (future-scramble rebuild, label-permutation null, source checks)
-src/canon_extra.py    pre-UFC stats / media & judge scorecards (tried, not used: no gain beyond the market)
-src/exp*.py, walk.py  experiment log (model zoo, stacking variants, new-information tests) kept for reference
-```
-
-`results/walkforward_predictions.csv` ships only the model's own out-of-sample probabilities (`stats_p_red`, `final_p_red`) for
-5,356 fights 2016–2026; the market probability and the result are removed (`src/evaluate.py` rebuilds the full file from the data).
-
-## How this was made
-
-The research was carried out by an LLM agent (Claude, Anthropic) working in a terminal. SolvAI set the goal and the hold-out rule and asked
-for the follow-ups (verify the result is not inflated, try for 75 %, betting, underdog models, profiles). Data search, pipeline, models,
-audit and write-up are the agent's. The follow-up project on French horse racing, with about 20 times more events, is
-[SolvAI/turfolio](https://github.com/SolvAI/turfolio).
-
-## License
-
-Code and model weights: MIT (see `LICENSE`). **No data is included**: `./run_pipeline.sh --refresh` downloads it from the sources listed
-under Data, each under its own license.
+Not affiliated with the UFC or any bookmaker. Not betting advice.

@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 catboost_info/
 results/betting_bets_test.csv
+.venv/
+*.part

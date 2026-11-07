@@ -1,4 +1,4 @@
-date,red,blue,weight_class,market_p_red,stats_p_red,model_p_red,pick,confidence,red_ufc_fights,blue_ufc_fights
-2026-12-12,Marvin Vettori,Roman Kopylov,Middleweight,0.522,0.532,0.541,Marvin Vettori,0.541,19,13
-2026-12-12,Payton Talbott,Marcus McGhee,Bantamweight,,0.815,0.815,Payton Talbott,0.815,7,7
-2026-12-12,Johnny Walker,Anthony Wint,Heavyweight,0.386,0.454,0.388,Anthony Wint,0.612,17,2
+date,red,blue,weight_class,market_p_red,stats_p_red,model_p_red,pick,confidence,red_ufc_fights,blue_ufc_fights,open_model_p_red,bet,decimal_odds,edge,stake_pct_bankroll
+2026-12-12,Marvin Vettori,Roman Kopylov,Middleweight,0.522,0.532,0.541,Marvin Vettori,0.541,19,13,0.546,,1.83,0.001,0.0
+2026-12-12,Payton Talbott,Marcus McGhee,Bantamweight,0.574,0.815,0.667,Payton Talbott,0.667,7,7,0.712,Payton Talbott,1.67,0.187,5.0
+2026-12-12,Johnny Walker,Anthony Wint,Heavyweight,0.386,0.454,0.388,Anthony Wint,0.612,17,2,0.389,,2.5,-0.026,0.0

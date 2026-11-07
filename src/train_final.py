@@ -2,6 +2,7 @@
 
 stats ensemble: 5 models fit on all completed fights since 2001
 stacker:        fit on out-of-fold stats predictions (yearly walk-forward, 2010+) so its weights are honest
+stacker_open:   the same with the opening line as the market input (the value-bet model of src/betting.py)
 """
 import warnings
 
@@ -9,6 +10,7 @@ import joblib
 import numpy as np
 from joblib import Parallel, delayed
 
+from betting import open_frame
 from common import ROOT, fighter_cols, load, logit
 from evaluate import OOF_YEARS, oof_year
 from final_model import STATS_VARIANTS, fit_stacker, fit_stats_one
@@ -29,10 +31,15 @@ def main():
     d["lg_ens"] = np.mean([logit(d[n]) for n in STATS_VARIANTS], axis=0)
     stacker = fit_stacker(d[d.date >= "2010-01-01"])
     print("stacker LR weights [lg_mkt, lg_stats]:", stacker["lr"].coef_[0].round(3))
+    # opening-line model (src/betting.py): the same stacker with the OPENING line as its only market input -> value bets at the open
+    do = open_frame(d[d.date >= "2010-01-01"])
+    stacker_open = fit_stacker(do[do.mkt_close.notna()])
+    print("opening stacker LR weights [lg_open, lg_stats]:", stacker_open["lr"].coef_[0].round(3))
     tr = d[d.date >= "2001-01-01"]
     stats = Parallel(n_jobs=5)(delayed(fit_stats_one)(tr, fcols, n, 4) for n in STATS_VARIANTS)
     (ROOT / "models").mkdir(exist_ok=True)
-    joblib.dump({"stats": stats, "stacker": stacker, "fcols": fcols, "trained_through": str(d.date.max().date())}, ROOT / "models" / "final.joblib")
+    joblib.dump({"stats": stats, "stacker": stacker, "stacker_open": stacker_open, "fcols": fcols, "trained_through": str(d.date.max().date())},
+                ROOT / "models" / "final.joblib")
     print("saved models/final.joblib")
 
 

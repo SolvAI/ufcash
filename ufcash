@@ -1,0 +1,4 @@
+#!/bin/sh
+# UFCash launcher (macOS / Linux): ./ufcash card
+DIR="$(cd "$(dirname "$0")" && pwd)"
+exec "$DIR/.venv/bin/python" -I "$DIR/ufcash.py" "$@"
