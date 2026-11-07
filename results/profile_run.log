@@ -1,0 +1,11 @@
+dev fights with a closing line: 3845, both fighters in Wikidata: 3468
+  profile_safe (region, home)              n=3468  log-loss change -0.00067 CI[-0.00368,+0.00212]  acc 0.6563 -> 0.6525  coefs(2023 fit) {'D_reg_us': np.float64(-0.023), 'D_reg_br': np.float64(0.151), 'D_reg_jp': np.float64(-0.337), 'D_reg_ca': np.float64(-0.056), 'D_reg_mx': np.float64(-0.086), 'D_reg_ukie': np.float64(-0.058), 'D_reg_aunz': np.float64(0.051), 'D_reg_cis': np.float64(0.489), 'D_reg_eas': np.float64(0.045), 'D_home': np.float64(0.067)}
+  profile_all (+ background, education)    n=3468  log-loss change -0.00056 CI[-0.00499,+0.00375]  acc 0.6563 -> 0.6528  coefs(2023 fit) {'D_reg_us': np.float64(-0.13), 'D_reg_br': np.float64(0.233), 'D_reg_jp': np.float64(-0.35), 'D_reg_ca': np.float64(-0.069), 'D_reg_mx': np.float64(-0.046), 'D_reg_ukie': np.float64(-0.074), 'D_reg_aunz': np.float64(-0.0), 'D_reg_cis': np.float64(0.514), 'D_reg_eas': np.float64(0.054), 'D_home': np.float64(0.074), 'D_wrest': np.float64(0.329), 'D_grap': np.float64(-0.158), 'D_strike': np.float64(0.123), 'D_bjj': np.float64(-0.161), 'D_edu': np.float64(0.235)}
+  style_pair                               n=3845  log-loss change -0.00035 CI[-0.00073,+0.00006]  acc 0.6655 -> 0.6666  coefs(2023 fit) {'style_pair': np.float64(-1.941)}
+  style_personal                           n=3845  log-loss change +0.00013 CI[-0.00001,+0.00028]  acc 0.6655 -> 0.6661  coefs(2023 fit) {'style_personal': np.float64(0.004)}
+  style_both                               n=3845  log-loss change -0.00022 CI[-0.00064,+0.00018]  acc 0.6655 -> 0.6661  coefs(2023 fit) {'style_pair': np.float64(-1.943), 'style_personal': np.float64(0.039)}
+
+CIS-trained (by pre-UFC fight locations) vs non-CIS: 592 fights 2010-2026
+  2010-15       n=  65  CIS side won 0.662 vs fair close 0.552 | bet CIS side @close_mid: ROI +16.3% (+/- 24.2%, n=65) | bet CIS side @open: ROI +15.0% (+/- 21.5%, n=65)
+  dev 2016-23   n= 347  CIS side won 0.622 vs fair close 0.575 | bet CIS side @close_mid: ROI +1.0% (+/- 9.3%, n=347) | bet CIS side @open: ROI +2.7% (+/- 9.1%, n=347)
+  test 2024-26  n= 180  CIS side won 0.594 vs fair close 0.557 | bet CIS side @close_mid: ROI -0.2% (+/- 13.6%, n=180) | bet CIS side @open: ROI +3.4% (+/- 14.2%, n=180)

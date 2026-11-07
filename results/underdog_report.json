@@ -1,0 +1,708 @@
+{
+ "close_mid": {
+  "every_underdog": {
+   "dev": -0.0923,
+   "test": -0.147
+  },
+  "models": [
+   {
+    "model": "base",
+    "threshold": 0.05,
+    "dev": {
+     "bets": 546,
+     "staked": 546.0,
+     "profit": 63.84,
+     "roi": 0.1169,
+     "hit_rate": 0.445,
+     "avg_odds": 2.66,
+     "fair_roi": -0.0369,
+     "roi_ci95": [
+      0.0174,
+      0.2157
+     ],
+     "p_profit_le_0": 0.01
+    },
+    "test": {
+     "bets": 106,
+     "staked": 106.0,
+     "profit": 9.87,
+     "roi": 0.0931,
+     "hit_rate": 0.415,
+     "avg_odds": 2.89,
+     "fair_roi": -0.0402,
+     "roi_ci95": [
+      -0.1726,
+      0.3597
+     ],
+     "p_profit_le_0": 0.255
+    },
+    "dev_years_positive": "7/8",
+    "dev_roi_without_top10": 0.0631,
+    "dev_per_year": {
+     "2016": 0.176,
+     "2017": 0.009,
+     "2018": 0.185,
+     "2019": 0.136,
+     "2020": 0.207,
+     "2021": 0.264,
+     "2022": -0.085,
+     "2023": 0.096
+    },
+    "test_years_positive": "1/3",
+    "test_roi_without_top10": -0.1539,
+    "test_per_year": {
+     "2024": -0.053,
+     "2025": 0.606,
+     "2026": -0.206
+    }
+   },
+   {
+    "model": "mkt_bias",
+    "threshold": 0.0,
+    "dev": {
+     "bets": 1083,
+     "staked": 1083.0,
+     "profit": -31.94,
+     "roi": -0.0295,
+     "hit_rate": 0.457,
+     "avg_odds": 2.13,
+     "fair_roi": -0.0399,
+     "roi_ci95": [
+      -0.0923,
+      0.0316
+     ],
+     "p_profit_le_0": 0.824
+    },
+    "test": {
+     "bets": 113,
+     "staked": 113.0,
+     "profit": -17.73,
+     "roi": -0.1569,
+     "hit_rate": 0.425,
+     "avg_odds": 1.99,
+     "fair_roi": -0.0421,
+     "roi_ci95": [
+      -0.3536,
+      0.052
+     ],
+     "p_profit_le_0": 0.922
+    },
+    "dev_years_positive": "3/8",
+    "dev_roi_without_top10": -0.0438,
+    "dev_per_year": {
+     "2016": 0.062,
+     "2017": -0.175,
+     "2018": 0.277,
+     "2019": -0.029,
+     "2020": -0.166,
+     "2021": -0.002,
+     "2022": 0.11,
+     "2023": -0.128
+    },
+    "test_years_positive": "1/3",
+    "test_roi_without_top10": -0.2768,
+    "test_per_year": {
+     "2024": -0.198,
+     "2025": 0.07,
+     "2026": -0.256
+    }
+   },
+   {
+    "model": "lr_small",
+    "threshold": 0.08,
+    "dev": {
+     "bets": 577,
+     "staked": 577.0,
+     "profit": 88.16,
+     "roi": 0.1528,
+     "hit_rate": 0.473,
+     "avg_odds": 2.53,
+     "fair_roi": -0.0372,
+     "roi_ci95": [
+      0.0605,
+      0.2554
+     ],
+     "p_profit_le_0": 0.001
+    },
+    "test": {
+     "bets": 98,
+     "staked": 98.0,
+     "profit": 5.06,
+     "roi": 0.0516,
+     "hit_rate": 0.418,
+     "avg_odds": 2.66,
+     "fair_roi": -0.0398,
+     "roi_ci95": [
+      -0.2126,
+      0.3307
+     ],
+     "p_profit_le_0": 0.359
+    },
+    "dev_years_positive": "7/8",
+    "dev_roi_without_top10": 0.1046,
+    "dev_per_year": {
+     "2016": 0.212,
+     "2017": 0.103,
+     "2018": 0.275,
+     "2019": 0.186,
+     "2020": 0.163,
+     "2021": 0.22,
+     "2022": -0.116,
+     "2023": 0.165
+    },
+    "test_years_positive": "1/3",
+    "test_roi_without_top10": -0.2109,
+    "test_per_year": {
+     "2024": -0.324,
+     "2025": 0.711,
+     "2026": -0.111
+    }
+   },
+   {
+    "model": "lgb_resid",
+    "threshold": 0.15,
+    "dev": {
+     "bets": 481,
+     "staked": 481.0,
+     "profit": 61.28,
+     "roi": 0.1274,
+     "hit_rate": 0.439,
+     "avg_odds": 2.73,
+     "fair_roi": -0.037,
+     "roi_ci95": [
+      0.0029,
+      0.248
+     ],
+     "p_profit_le_0": 0.022
+    },
+    "test": {
+     "bets": 97,
+     "staked": 97.0,
+     "profit": 11.3,
+     "roi": 0.1165,
+     "hit_rate": 0.433,
+     "avg_odds": 2.66,
+     "fair_roi": -0.0418,
+     "roi_ci95": [
+      -0.1291,
+      0.3617
+     ],
+     "p_profit_le_0": 0.183
+    },
+    "dev_years_positive": "7/8",
+    "dev_roi_without_top10": 0.0524,
+    "dev_per_year": {
+     "2016": 0.144,
+     "2017": 0.209,
+     "2018": 0.313,
+     "2019": 0.124,
+     "2020": 0.078,
+     "2021": 0.281,
+     "2022": -0.305,
+     "2023": 0.19
+    },
+    "test_years_positive": "2/3",
+    "test_roi_without_top10": -0.144,
+    "test_per_year": {
+     "2024": -0.205,
+     "2025": 0.552,
+     "2026": 0.104
+    }
+   },
+   {
+    "model": "lgb_profit",
+    "threshold": 0.2,
+    "dev": {
+     "bets": 261,
+     "staked": 261.0,
+     "profit": 11.08,
+     "roi": 0.0424,
+     "hit_rate": 0.402,
+     "avg_odds": 2.77,
+     "fair_roi": -0.0376,
+     "roi_ci95": [
+      -0.1256,
+      0.203
+     ],
+     "p_profit_le_0": 0.302
+    },
+    "test": {
+     "bets": 43,
+     "staked": 43.0,
+     "profit": 1.38,
+     "roi": 0.0321,
+     "hit_rate": 0.395,
+     "avg_odds": 2.75,
+     "fair_roi": -0.039,
+     "roi_ci95": [
+      -0.3792,
+      0.4397
+     ],
+     "p_profit_le_0": 0.449
+    },
+    "dev_years_positive": "4/8",
+    "dev_roi_without_top10": -0.0728,
+    "dev_per_year": {
+     "2016": 0.164,
+     "2017": -0.086,
+     "2018": -0.0,
+     "2019": 0.229,
+     "2020": -0.077,
+     "2021": 0.437,
+     "2022": -0.372,
+     "2023": 0.214
+    },
+    "test_years_positive": "2/3",
+    "test_roi_without_top10": -0.5606,
+    "test_per_year": {
+     "2024": -0.449,
+     "2025": 0.19,
+     "2026": 0.436
+    }
+   },
+   {
+    "model": "lgb_cost",
+    "threshold": 0.08,
+    "dev": {
+     "bets": 593,
+     "staked": 593.0,
+     "profit": 19.62,
+     "roi": 0.0331,
+     "hit_rate": 0.417,
+     "avg_odds": 2.6,
+     "fair_roi": -0.0381,
+     "roi_ci95": [
+      -0.0667,
+      0.1357
+     ],
+     "p_profit_le_0": 0.253
+    },
+    "test": {
+     "bets": 164,
+     "staked": 164.0,
+     "profit": 18.75,
+     "roi": 0.1143,
+     "hit_rate": 0.451,
+     "avg_odds": 2.63,
+     "fair_roi": -0.0414,
+     "roi_ci95": [
+      -0.1033,
+      0.3147
+     ],
+     "p_profit_le_0": 0.161
+    },
+    "dev_years_positive": "5/8",
+    "dev_roi_without_top10": -0.0228,
+    "dev_per_year": {
+     "2016": -0.076,
+     "2017": 0.051,
+     "2018": 0.038,
+     "2019": 0.242,
+     "2020": -0.112,
+     "2021": 0.097,
+     "2022": -0.093,
+     "2023": 0.126
+    },
+    "test_years_positive": "2/3",
+    "test_roi_without_top10": -0.0386,
+    "test_per_year": {
+     "2024": -0.035,
+     "2025": 0.286,
+     "2026": 0.112
+    }
+   },
+   {
+    "model": "growth",
+    "threshold": 0.02,
+    "dev": {
+     "bets": 218,
+     "staked": 5.49,
+     "profit": 0.8,
+     "roi": 0.1451,
+     "hit_rate": 0.472,
+     "avg_odds": 2.52,
+     "fair_roi": -0.037,
+     "roi_ci95": [
+      -0.0117,
+      0.3128
+     ],
+     "p_profit_le_0": 0.035
+    },
+    "test": {
+     "bets": 0
+    },
+    "dev_years_positive": "3/4",
+    "dev_roi_without_top10": 0.0009,
+    "dev_per_year": {
+     "2016": 0.182,
+     "2017": 0.188,
+     "2018": 0.136,
+     "2019": -0.048
+    },
+    "test_years_positive": "0/0",
+    "test_roi_without_top10": NaN,
+    "test_per_year": {}
+   }
+  ],
+  "chosen_on_dev": "lr_small"
+ },
+ "null_close_mid": {
+  "n": 40,
+  "true_roi_random_underdog_bet": -0.0373,
+  "best_of_models_dev_roi": {
+   "median": 0.092,
+   "p95": 0.2295,
+   "share_ge_real": 0.175
+  },
+  "per_model": {
+   "mkt_bias": {
+    "median": 0.0136,
+    "p95": 0.2222
+   },
+   "lr_small": {
+    "median": -0.0192,
+    "p95": 0.1289
+   },
+   "lgb_resid": {
+    "median": 0.0066,
+    "p95": 0.0948
+   },
+   "lgb_profit": {
+    "median": 0.0018,
+    "p95": 0.1221
+   },
+   "lgb_cost": {
+    "median": 0.0096,
+    "p95": 0.1536
+   },
+   "growth": {
+    "median": -0.0208,
+    "p95": 0.1024
+   }
+  }
+ },
+ "open": {
+  "every_underdog": {
+   "dev": -0.093,
+   "test": -0.1129
+  },
+  "models": [
+   {
+    "model": "base",
+    "threshold": 0.15,
+    "dev": {
+     "bets": 182,
+     "staked": 182.0,
+     "profit": 63.79,
+     "roi": 0.3505,
+     "hit_rate": 0.522,
+     "avg_odds": 2.68,
+     "fair_roi": 0.1754,
+     "roi_ci95": [
+      0.1591,
+      0.535
+     ],
+     "p_profit_le_0": 0.0
+    },
+    "test": {
+     "bets": 89,
+     "staked": 89.0,
+     "profit": 25.12,
+     "roi": 0.2823,
+     "hit_rate": 0.506,
+     "avg_odds": 2.76,
+     "fair_roi": 0.2158,
+     "roi_ci95": [
+      0.0204,
+      0.5437
+     ],
+     "p_profit_le_0": 0.021
+    },
+    "dev_years_positive": "7/8",
+    "dev_roi_without_top10": 0.2104,
+    "dev_per_year": {
+     "2016": 0.637,
+     "2017": 0.246,
+     "2018": 0.0,
+     "2019": 0.417,
+     "2020": 0.672,
+     "2021": 0.518,
+     "2022": -0.075,
+     "2023": 0.628
+    },
+    "dev_roi_fill50": 0.2059,
+    "test_years_positive": "3/3",
+    "test_roi_without_top10": 0.0039,
+    "test_per_year": {
+     "2024": 0.228,
+     "2025": 0.598,
+     "2026": 0.109
+    },
+    "test_roi_fill50": 0.1178
+   },
+   {
+    "model": "mkt_bias",
+    "threshold": 0.0,
+    "dev": {
+     "bets": 158,
+     "staked": 158.0,
+     "profit": -8.94,
+     "roi": -0.0566,
+     "hit_rate": 0.462,
+     "avg_odds": 2.04,
+     "fair_roi": -0.0249,
+     "roi_ci95": [
+      -0.2046,
+      0.0867
+     ],
+     "p_profit_le_0": 0.769
+    },
+    "test": {
+     "bets": 45,
+     "staked": 45.0,
+     "profit": 6.23,
+     "roi": 0.1384,
+     "hit_rate": 0.578,
+     "avg_odds": 1.97,
+     "fair_roi": 0.0023,
+     "roi_ci95": [
+      -0.1681,
+      0.4645
+     ],
+     "p_profit_le_0": 0.169
+    },
+    "dev_years_positive": "2/5",
+    "dev_roi_without_top10": -0.1354,
+    "dev_per_year": {
+     "2019": 0.952,
+     "2020": -0.066,
+     "2021": 0.05,
+     "2022": -0.135,
+     "2023": -0.232
+    },
+    "dev_roi_fill50": -0.0803,
+    "test_years_positive": "2/3",
+    "test_roi_without_top10": -0.1075,
+    "test_per_year": {
+     "2024": -0.078,
+     "2025": 0.673,
+     "2026": 0.481
+    },
+    "test_roi_fill50": 0.0864
+   },
+   {
+    "model": "lr_small",
+    "threshold": 0.2,
+    "dev": {
+     "bets": 173,
+     "staked": 173.0,
+     "profit": 37.54,
+     "roi": 0.217,
+     "hit_rate": 0.497,
+     "avg_odds": 2.53,
+     "fair_roi": 0.122,
+     "roi_ci95": [
+      0.0288,
+      0.4121
+     ],
+     "p_profit_le_0": 0.013
+    },
+    "test": {
+     "bets": 63,
+     "staked": 63.0,
+     "profit": 12.91,
+     "roi": 0.205,
+     "hit_rate": 0.492,
+     "avg_odds": 2.61,
+     "fair_roi": 0.1511,
+     "roi_ci95": [
+      -0.1263,
+      0.5272
+     ],
+     "p_profit_le_0": 0.111
+    },
+    "dev_years_positive": "6/8",
+    "dev_roi_without_top10": 0.0932,
+    "dev_per_year": {
+     "2016": 0.637,
+     "2017": 0.356,
+     "2018": 0.843,
+     "2019": -0.244,
+     "2020": 0.165,
+     "2021": 0.253,
+     "2022": -0.226,
+     "2023": 0.443
+    },
+    "dev_roi_fill50": 0.1139,
+    "test_years_positive": "2/3",
+    "test_roi_without_top10": -0.1199,
+    "test_per_year": {
+     "2024": 0.066,
+     "2025": 0.551,
+     "2026": -0.061
+    },
+    "test_roi_fill50": 0.0834
+   },
+   {
+    "model": "lgb_resid",
+    "threshold": 0.08,
+    "dev": {
+     "bets": 637,
+     "staked": 637.0,
+     "profit": 68.21,
+     "roi": 0.1071,
+     "hit_rate": 0.449,
+     "avg_odds": 2.51,
+     "fair_roi": 0.0464,
+     "roi_ci95": [
+      0.0123,
+      0.203
+     ],
+     "p_profit_le_0": 0.01
+    },
+    "test": {
+     "bets": 232,
+     "staked": 232.0,
+     "profit": 29.79,
+     "roi": 0.1284,
+     "hit_rate": 0.444,
+     "avg_odds": 2.63,
+     "fair_roi": 0.0768,
+     "roi_ci95": [
+      -0.0287,
+      0.2877
+     ],
+     "p_profit_le_0": 0.052
+    },
+    "dev_years_positive": "8/8",
+    "dev_roi_without_top10": 0.0612,
+    "dev_per_year": {
+     "2016": 0.121,
+     "2017": 0.21,
+     "2018": 0.067,
+     "2019": 0.178,
+     "2020": 0.14,
+     "2021": 0.106,
+     "2022": 0.014,
+     "2023": 0.007
+    },
+    "dev_roi_fill50": 0.046,
+    "test_years_positive": "2/3",
+    "test_roi_without_top10": 0.0186,
+    "test_per_year": {
+     "2024": 0.02,
+     "2025": 0.384,
+     "2026": -0.052
+    },
+    "test_roi_fill50": 0.07
+   },
+   {
+    "model": "lgb_profit",
+    "threshold": 0.15,
+    "dev": {
+     "bets": 358,
+     "staked": 358.0,
+     "profit": 29.71,
+     "roi": 0.083,
+     "hit_rate": 0.441,
+     "avg_odds": 2.52,
+     "fair_roi": 0.0591,
+     "roi_ci95": [
+      -0.0372,
+      0.2118
+     ],
+     "p_profit_le_0": 0.09
+    },
+    "test": {
+     "bets": 119,
+     "staked": 119.0,
+     "profit": 1.85,
+     "roi": 0.0156,
+     "hit_rate": 0.403,
+     "avg_odds": 2.71,
+     "fair_roi": 0.1221,
+     "roi_ci95": [
+      -0.229,
+      0.2648
+     ],
+     "p_profit_le_0": 0.435
+    },
+    "dev_years_positive": "6/8",
+    "dev_roi_without_top10": 0.0105,
+    "dev_per_year": {
+     "2016": -0.164,
+     "2017": 0.008,
+     "2018": -0.127,
+     "2019": 0.385,
+     "2020": 0.105,
+     "2021": 0.082,
+     "2022": 0.184,
+     "2023": 0.187
+    },
+    "dev_roi_fill50": 0.0107,
+    "test_years_positive": "1/3",
+    "test_roi_without_top10": -0.1717,
+    "test_per_year": {
+     "2024": -0.017,
+     "2025": 0.279,
+     "2026": -0.287
+    },
+    "test_roi_fill50": -0.0807
+   },
+   {
+    "model": "lgb_cost",
+    "threshold": 0.02,
+    "dev": {
+     "bets": 585,
+     "staked": 585.0,
+     "profit": 61.26,
+     "roi": 0.1047,
+     "hit_rate": 0.444,
+     "avg_odds": 2.55,
+     "fair_roi": 0.0121,
+     "roi_ci95": [
+      0.006,
+      0.2037
+     ],
+     "p_profit_le_0": 0.019
+    },
+    "test": {
+     "bets": 228,
+     "staked": 228.0,
+     "profit": 18.6,
+     "roi": 0.0816,
+     "hit_rate": 0.425,
+     "avg_odds": 2.67,
+     "fair_roi": 0.0326,
+     "roi_ci95": [
+      -0.0707,
+      0.2266
+     ],
+     "p_profit_le_0": 0.141
+    },
+    "dev_years_positive": "6/8",
+    "dev_roi_without_top10": 0.059,
+    "dev_per_year": {
+     "2016": 0.16,
+     "2017": 0.103,
+     "2018": 0.201,
+     "2019": 0.223,
+     "2020": 0.09,
+     "2021": -0.032,
+     "2022": -0.031,
+     "2023": 0.167
+    },
+    "dev_roi_fill50": 0.0723,
+    "test_years_positive": "2/3",
+    "test_roi_without_top10": -0.0251,
+    "test_per_year": {
+     "2024": -0.037,
+     "2025": 0.156,
+     "2026": 0.133
+    },
+    "test_roi_fill50": 0.021
+   }
+  ],
+  "chosen_on_dev": "base"
+ }
+}

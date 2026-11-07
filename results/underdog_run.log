@@ -1,0 +1,33 @@
+
+=== close_mid: 7475 fights (train from 2010), every underdog: dev ROI -9.23%, test -14.70%, avg odds 3.10, win rate 0.329
+  base       t=0.05   DEV  546 bets ROI +11.69% CI[+2%,+22%] yrs+ 7/8 | TEST  106 bets ROI  +9.31% CI[-17%,+36%] P(loss) 0.26 CLV -4.0% odds 2.89 w/o top10 -15.4%
+  mkt_bias   t=0      DEV 1083 bets ROI  -2.95% CI[-9%,+3%] yrs+ 3/8 | TEST  113 bets ROI -15.69% CI[-35%,+5%] P(loss) 0.92 CLV -4.2% odds 1.99 w/o top10 -27.7%
+  lr_small   t=0.08   DEV  577 bets ROI +15.28% CI[+6%,+26%] yrs+ 7/8 | TEST   98 bets ROI  +5.16% CI[-21%,+33%] P(loss) 0.36 CLV -4.0% odds 2.66 w/o top10 -21.1%
+  lgb_resid  t=0.15   DEV  481 bets ROI +12.74% CI[+0%,+25%] yrs+ 7/8 | TEST   97 bets ROI +11.65% CI[-13%,+36%] P(loss) 0.18 CLV -4.2% odds 2.66 w/o top10 -14.4%
+  lgb_profit t=0.2    DEV  261 bets ROI  +4.24% CI[-13%,+20%] yrs+ 4/8 | TEST   43 bets ROI  +3.21% CI[-38%,+44%] P(loss) 0.45 CLV -3.9% odds 2.75 w/o top10 -56.1%
+  lgb_cost   t=0.08   DEV  593 bets ROI  +3.31% CI[-7%,+14%] yrs+ 5/8 | TEST  164 bets ROI +11.43% CI[-10%,+31%] P(loss) 0.16 CLV -4.1% odds 2.63 w/o top10 -3.9%
+  growth     t=0.02   DEV  218 bets ROI +14.51% | TEST 0 bets (stakes never above the dev-chosen minimum)
+  -> chosen on dev: lr_small (dev +15.28%) -> TEST +5.16%
+
+  NULL (40 worlds where the fair close is right; true ROI of a random underdog bet -3.73%):
+    mkt_bias   dev-selected ROI under null: median +1.36%, 95th pct +22.22%  | real -2.95%  share of null worlds >= real 0.83
+    lr_small   dev-selected ROI under null: median -1.92%, 95th pct +12.89%  | real +15.28%  share of null worlds >= real 0.06
+    lgb_resid  dev-selected ROI under null: median +0.66%, 95th pct +9.48%  | real +12.74%  share of null worlds >= real 0.03
+    lgb_profit dev-selected ROI under null: median +0.18%, 95th pct +12.21%  | real +4.24%  share of null worlds >= real 0.28
+    lgb_cost   dev-selected ROI under null: median +0.96%, 95th pct +15.36%  | real +3.31%  share of null worlds >= real 0.33
+    growth     dev-selected ROI under null: median -2.08%, 95th pct +10.24%  | real +14.51%  share of null worlds >= real 0.14
+    best of all 6 models under null: median +9.20%, 95th pct +22.95% | real best +15.28%  share >= real 0.17
+
+=== open: 7278 fights (train from 2010), every underdog: dev ROI -9.30%, test -11.29%, avg odds 2.83, win rate 0.346
+  base       t=0.15   DEV  182 bets ROI +35.05% CI[+16%,+54%] yrs+ 7/8 | TEST   89 bets ROI +28.23% CI[+2%,+54%] P(loss) 0.02 CLV +21.6% odds 2.76 w/o top10 +0.4% fill50 +11.8%
+  mkt_bias   t=0      DEV  158 bets ROI  -5.66% CI[-20%,+9%] yrs+ 2/5 | TEST   45 bets ROI +13.84% CI[-17%,+46%] P(loss) 0.17 CLV +0.2% odds 1.97 w/o top10 -10.8% fill50 +8.6%
+  lr_small   t=0.2    DEV  173 bets ROI +21.70% CI[+3%,+41%] yrs+ 6/8 | TEST   63 bets ROI +20.50% CI[-13%,+53%] P(loss) 0.11 CLV +15.1% odds 2.61 w/o top10 -12.0% fill50 +8.3%
+  lgb_resid  t=0.08   DEV  637 bets ROI +10.71% CI[+1%,+20%] yrs+ 8/8 | TEST  232 bets ROI +12.84% CI[-3%,+29%] P(loss) 0.05 CLV +7.7% odds 2.63 w/o top10 +1.9% fill50 +7.0%
+  lgb_profit t=0.15   DEV  358 bets ROI  +8.30% CI[-4%,+21%] yrs+ 6/8 | TEST  119 bets ROI  +1.56% CI[-23%,+26%] P(loss) 0.43 CLV +12.2% odds 2.71 w/o top10 -17.2% fill50 -8.1%
+  lgb_cost   t=0.02   DEV  585 bets ROI +10.47% CI[+1%,+20%] yrs+ 6/8 | TEST  228 bets ROI  +8.16% CI[-7%,+23%] P(loss) 0.14 CLV +3.3% odds 2.67 w/o top10 -2.5% fill50 +2.1%
+  growth     no threshold with >= 150 dev bets
+  -> chosen on dev: base (dev +35.05%) -> TEST +28.23%
+
+real	0m24.960s
+user	8m8.025s
+sys	0m6.599s

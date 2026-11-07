@@ -1,0 +1,4386 @@
+{
+ "n_fights": {
+  "dev": 3820,
+  "test": 1483
+ },
+ "bookmaker_margin": {
+  "dev": {
+   "mid_close": 0.0403,
+   "best_close": 0.017,
+   "open": 0.0552
+  },
+  "test": {
+   "mid_close": 0.0455,
+   "best_close": 0.0132,
+   "open": 0.0473
+  }
+ },
+ "robustness": [
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "threshold_chosen_on_dev": 0.05,
+   "dev": {
+    "bets": 904,
+    "staked": 904.0,
+    "profit": 87.91,
+    "roi": 0.0972,
+    "hit_rate": 0.532,
+    "avg_odds": 2.25,
+    "fair_roi": -0.0375,
+    "roi_ci95": [
+     0.0254,
+     0.1629
+    ],
+    "p_profit_le_0": 0.003
+   },
+   "test": {
+    "bets": 168,
+    "staked": 168.0,
+    "profit": 16.91,
+    "roi": 0.1006,
+    "hit_rate": 0.518,
+    "avg_odds": 2.42,
+    "fair_roi": -0.0414,
+    "roi_ci95": [
+     -0.082,
+     0.2787
+    ],
+    "p_profit_le_0": 0.135
+   },
+   "dev_roi_without_top10_wins": 0.0647,
+   "dev_roi_odds_le_4": 0.1076,
+   "dev_years_positive": "6/8",
+   "dev_roi_by_source": {
+    "nlbair": 0.0972
+   },
+   "test_roi_without_top10_wins": -0.0489,
+   "test_roi_odds_le_4": 0.1182,
+   "test_years_positive": "2/3",
+   "test_roi_by_source": {
+    "nlbair": 0.1161
+   },
+   "dev_roi_ev_cap_0.2": 0.1015,
+   "dev_roi_ev_cap_0.5": 0.0948,
+   "dev_roi_ev_cap_99": 0.1,
+   "dev_roi_excl_open_close_moves_gt_15pts": 0.0986,
+   "test_roi_ev_cap_0.2": 0.1007,
+   "test_roi_ev_cap_0.5": 0.0941,
+   "test_roi_ev_cap_99": 0.0941,
+   "test_roi_excl_open_close_moves_gt_15pts": 0.0922
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "threshold_chosen_on_dev": 0.1,
+   "dev": {
+    "bets": 580,
+    "staked": 580.0,
+    "profit": 89.06,
+    "roi": 0.1535,
+    "hit_rate": 0.488,
+    "avg_odds": 2.59,
+    "fair_roi": 0.0032,
+    "roi_ci95": [
+     0.0531,
+     0.2532
+    ],
+    "p_profit_le_0": 0.002
+   },
+   "test": {
+    "bets": 137,
+    "staked": 137.0,
+    "profit": 19.79,
+    "roi": 0.1445,
+    "hit_rate": 0.445,
+    "avg_odds": 3.14,
+    "fair_roi": 0.0298,
+    "roi_ci95": [
+     -0.0966,
+     0.4147
+    ],
+    "p_profit_le_0": 0.131
+   },
+   "dev_roi_without_top10_wins": 0.0965,
+   "dev_roi_odds_le_4": 0.1645,
+   "dev_years_positive": "7/8",
+   "dev_roi_by_source": {
+    "nlbair": 0.1535
+   },
+   "test_roi_without_top10_wins": -0.0964,
+   "test_roi_odds_le_4": 0.147,
+   "test_years_positive": "1/3",
+   "test_roi_by_source": {
+    "nlbair": 0.1701
+   },
+   "dev_roi_ev_cap_0.2": 0.1875,
+   "dev_roi_ev_cap_0.5": 0.141,
+   "dev_roi_ev_cap_99": 0.1571,
+   "dev_roi_excl_open_close_moves_gt_15pts": 0.1583,
+   "test_roi_ev_cap_0.2": 0.1613,
+   "test_roi_ev_cap_0.5": 0.1609,
+   "test_roi_ev_cap_99": 0.1447,
+   "test_roi_excl_open_close_moves_gt_15pts": 0.1536
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "threshold_chosen_on_dev": 0.1,
+   "dev": {
+    "bets": 580,
+    "staked": 580.0,
+    "profit": 130.45,
+    "roi": 0.2249,
+    "hit_rate": 0.59,
+    "avg_odds": 2.21,
+    "fair_roi": 0.0936,
+    "roi_ci95": [
+     0.1451,
+     0.3087
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 226,
+    "staked": 226.0,
+    "profit": 54.5,
+    "roi": 0.2411,
+    "hit_rate": 0.58,
+    "avg_odds": 2.35,
+    "fair_roi": 0.151,
+    "roi_ci95": [
+     0.1103,
+     0.3719
+    ],
+    "p_profit_le_0": 0.001
+   },
+   "dev_roi_without_top10_wins": 0.1796,
+   "dev_roi_odds_le_4": 0.2179,
+   "dev_years_positive": "8/8",
+   "dev_roi_by_source": {
+    "nlbair": 0.2249
+   },
+   "test_roi_without_top10_wins": 0.133,
+   "test_roi_odds_le_4": 0.2427,
+   "test_years_positive": "3/3",
+   "test_roi_by_source": {
+    "nlbair": 0.2378
+   },
+   "dev_roi_ev_cap_0.2": 0.198,
+   "dev_roi_ev_cap_0.5": 0.2289,
+   "dev_roi_ev_cap_99": 0.2289,
+   "dev_roi_excl_open_close_moves_gt_15pts": 0.1719,
+   "test_roi_ev_cap_0.2": 0.2418,
+   "test_roi_ev_cap_0.5": 0.2815,
+   "test_roi_ev_cap_99": 0.3103,
+   "test_roi_excl_open_close_moves_gt_15pts": 0.1603,
+   "dev_roi_filled_25pct_toward_close": 0.1768,
+   "dev_roi_filled_50pct_toward_close": 0.1367,
+   "dev_roi_filled_100pct_toward_close": 0.0738,
+   "test_roi_filled_25pct_toward_close": 0.1689,
+   "test_roi_filled_50pct_toward_close": 0.1122,
+   "test_roi_filled_100pct_toward_close": 0.027
+  },
+  {
+   "price": "close_mid",
+   "model": "p_mktcal",
+   "threshold_chosen_on_dev": 0.0,
+   "dev": {
+    "bets": 3,
+    "staked": 3.0,
+    "profit": 3.72,
+    "roi": 1.2405,
+    "hit_rate": 0.667,
+    "avg_odds": 3.19,
+    "fair_roi": 0.0467
+   },
+   "test": {
+    "bets": 1,
+    "staked": 1.0,
+    "profit": 0.62,
+    "roi": 0.6162,
+    "hit_rate": 1.0,
+    "avg_odds": 1.62,
+    "fair_roi": -0.0172
+   },
+   "dev_roi_without_top10_wins": NaN,
+   "dev_roi_odds_le_4": 0.2732,
+   "dev_years_positive": "2/2",
+   "dev_roi_by_source": {},
+   "test_roi_without_top10_wins": NaN,
+   "test_roi_odds_le_4": 0.6162,
+   "test_years_positive": "1/1",
+   "test_roi_by_source": {},
+   "dev_roi_ev_cap_0.2": 1.2405,
+   "dev_roi_ev_cap_0.5": 1.2405,
+   "dev_roi_ev_cap_99": 1.2405,
+   "dev_roi_excl_open_close_moves_gt_15pts": 1.2405,
+   "test_roi_ev_cap_0.2": 0.6162,
+   "test_roi_ev_cap_0.5": 0.6162,
+   "test_roi_ev_cap_99": 0.6162,
+   "test_roi_excl_open_close_moves_gt_15pts": 0.6162
+  },
+  {
+   "price": "close_best",
+   "model": "p_mktcal",
+   "threshold_chosen_on_dev": 0.0,
+   "dev": {
+    "bets": 997,
+    "staked": 997.0,
+    "profit": 45.6,
+    "roi": 0.0457,
+    "hit_rate": 0.629,
+    "avg_odds": 1.83,
+    "fair_roi": 0.0069,
+    "roi_ci95": [
+     -0.0135,
+     0.1026
+    ],
+    "p_profit_le_0": 0.067
+   },
+   "test": {
+    "bets": 749,
+    "staked": 749.0,
+    "profit": 15.85,
+    "roi": 0.0212,
+    "hit_rate": 0.698,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0078,
+    "roi_ci95": [
+     -0.0298,
+     0.069
+    ],
+    "p_profit_le_0": 0.22
+   },
+   "dev_roi_without_top10_wins": 0.0056,
+   "dev_roi_odds_le_4": 0.0412,
+   "dev_years_positive": "4/8",
+   "dev_roi_by_source": {
+    "nlbair": 0.0457
+   },
+   "test_roi_without_top10_wins": -0.0085,
+   "test_roi_odds_le_4": 0.021,
+   "test_years_positive": "1/3",
+   "test_roi_by_source": {
+    "nlbair": 0.0253
+   },
+   "dev_roi_ev_cap_0.2": 0.0467,
+   "dev_roi_ev_cap_0.5": 0.0532,
+   "dev_roi_ev_cap_99": 0.0532,
+   "dev_roi_excl_open_close_moves_gt_15pts": 0.0403,
+   "test_roi_ev_cap_0.2": 0.0162,
+   "test_roi_ev_cap_0.5": 0.0234,
+   "test_roi_ev_cap_99": 0.0234,
+   "test_roi_excl_open_close_moves_gt_15pts": 0.0225
+  }
+ ],
+ "realistic_10k": [
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "edge_gt": 0.05,
+   "fill_toward_close": 0.0,
+   "period": "dev",
+   "bets": 904,
+   "staked": 379989,
+   "profit": 30478,
+   "roi": 0.0802,
+   "max_drawdown": 0.219,
+   "years": "2016-2023"
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "edge_gt": 0.05,
+   "fill_toward_close": 0.0,
+   "period": "test",
+   "bets": 168,
+   "staked": 43913,
+   "profit": 4513,
+   "roi": 0.1028,
+   "max_drawdown": 0.098,
+   "years": "2024-2026"
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "edge_gt": 0.1,
+   "fill_toward_close": 0.0,
+   "period": "dev",
+   "bets": 580,
+   "staked": 257782,
+   "profit": 41850,
+   "roi": 0.1623,
+   "max_drawdown": 0.221,
+   "years": "2016-2023"
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "edge_gt": 0.1,
+   "fill_toward_close": 0.0,
+   "period": "test",
+   "bets": 137,
+   "staked": 40440,
+   "profit": 7008,
+   "roi": 0.1733,
+   "max_drawdown": 0.157,
+   "years": "2024-2026"
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "edge_gt": 0.1,
+   "fill_toward_close": 0.0,
+   "period": "dev",
+   "bets": 580,
+   "staked": 280185,
+   "profit": 60983,
+   "roi": 0.2177,
+   "max_drawdown": 0.106,
+   "years": "2016-2023"
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "edge_gt": 0.1,
+   "fill_toward_close": 0.0,
+   "period": "test",
+   "bets": 226,
+   "staked": 101221,
+   "profit": 25501,
+   "roi": 0.2519,
+   "max_drawdown": 0.115,
+   "years": "2024-2026"
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "edge_gt": 0.1,
+   "fill_toward_close": 0.5,
+   "period": "dev",
+   "bets": 580,
+   "staked": 276694,
+   "profit": 35847,
+   "roi": 0.1296,
+   "max_drawdown": 0.147,
+   "years": "2016-2023"
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "edge_gt": 0.1,
+   "fill_toward_close": 0.5,
+   "period": "test",
+   "bets": 226,
+   "staked": 92418,
+   "profit": 10713,
+   "roi": 0.1159,
+   "max_drawdown": 0.154,
+   "years": "2024-2026"
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "edge_gt": 0.05,
+   "fill_toward_close": 0.5,
+   "period": "dev",
+   "bets": 1382,
+   "staked": 656033,
+   "profit": 63886,
+   "roi": 0.0974,
+   "max_drawdown": 0.161,
+   "years": "2016-2023"
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "edge_gt": 0.05,
+   "fill_toward_close": 0.5,
+   "period": "test",
+   "bets": 552,
+   "staked": 219876,
+   "profit": 13202,
+   "roi": 0.06,
+   "max_drawdown": 0.266,
+   "years": "2024-2026"
+  }
+ ],
+ "flat": [
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "favourite",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -168.61,
+    "roi": -0.0441,
+    "hit_rate": 0.658,
+    "avg_odds": 1.49,
+    "fair_roi": -0.0566,
+    "roi_ci95": [
+     -0.0656,
+     -0.0219
+    ],
+    "p_profit_le_0": 1.0
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": -39.45,
+    "roi": -0.0266,
+    "hit_rate": 0.701,
+    "avg_odds": 1.42,
+    "fair_roi": -0.0675,
+    "roi_ci95": [
+     -0.0605,
+     0.0057
+    ],
+    "p_profit_le_0": 0.946
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "underdog",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -476.5,
+    "roi": -0.1247,
+    "hit_rate": 0.342,
+    "avg_odds": 2.88,
+    "fair_roi": -0.0724,
+    "roi_ci95": [
+     -0.1632,
+     -0.0848
+    ],
+    "p_profit_le_0": 1.0
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": -286.73,
+    "roi": -0.1933,
+    "hit_rate": 0.299,
+    "avg_odds": 3.11,
+    "fair_roi": -0.0959,
+    "roi_ci95": [
+     -0.2584,
+     -0.1225
+    ],
+    "p_profit_le_0": 1.0
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "pick",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -104.69,
+    "roi": -0.0274,
+    "hit_rate": 0.663,
+    "avg_odds": 1.5,
+    "fair_roi": -0.0569,
+    "roi_ci95": [
+     -0.049,
+     -0.005
+    ],
+    "p_profit_le_0": 0.992
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": -25.7,
+    "roi": -0.0173,
+    "hit_rate": 0.704,
+    "avg_odds": 1.42,
+    "fair_roi": -0.0676,
+    "roi_ci95": [
+     -0.0494,
+     0.0146
+    ],
+    "p_profit_le_0": 0.841
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "pick_conf_stake",
+   "dev": {
+    "bets": 3820,
+    "staked": 16133.41,
+    "profit": -239.26,
+    "roi": -0.0148,
+    "hit_rate": 0.663,
+    "avg_odds": 1.5,
+    "fair_roi": -0.0549,
+    "roi_ci95": [
+     -0.0353,
+     0.0053
+    ],
+    "p_profit_le_0": 0.928
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 7053.02,
+    "profit": -127.97,
+    "roi": -0.0181,
+    "hit_rate": 0.704,
+    "avg_odds": 1.42,
+    "fair_roi": -0.0654,
+    "roi_ci95": [
+     -0.0496,
+     0.0109
+    ],
+    "p_profit_le_0": 0.892
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "dev": {
+    "bets": 255,
+    "staked": 255.0,
+    "profit": 16.91,
+    "roi": 0.0663,
+    "hit_rate": 0.541,
+    "avg_odds": 1.97,
+    "fair_roi": -0.0677,
+    "roi_ci95": [
+     -0.0462,
+     0.1791
+    ],
+    "p_profit_le_0": 0.129
+   },
+   "test": {
+    "bets": 57,
+    "staked": 57.0,
+    "profit": 2.82,
+    "roi": 0.0495,
+    "hit_rate": 0.544,
+    "avg_odds": 1.93,
+    "fair_roi": -0.0789,
+    "roi_ci95": [
+     -0.2078,
+     0.2976
+    ],
+    "p_profit_le_0": 0.35
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 1705,
+    "staked": 1705.0,
+    "profit": 117.84,
+    "roi": 0.0691,
+    "hit_rate": 0.608,
+    "avg_odds": 1.92,
+    "fair_roi": -0.0545,
+    "roi_ci95": [
+     0.0233,
+     0.117
+    ],
+    "p_profit_le_0": 0.002
+   },
+   "test": {
+    "bets": 340,
+    "staked": 340.0,
+    "profit": 17.23,
+    "roi": 0.0507,
+    "hit_rate": 0.621,
+    "avg_odds": 1.86,
+    "fair_roi": -0.0681,
+    "roi_ci95": [
+     -0.0444,
+     0.146
+    ],
+    "p_profit_le_0": 0.151
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_underdog>0.00",
+   "dev": {
+    "bets": 710,
+    "staked": 710.0,
+    "profit": 76.9,
+    "roi": 0.1083,
+    "hit_rate": 0.465,
+    "avg_odds": 2.52,
+    "fair_roi": -0.06,
+    "roi_ci95": [
+     0.0232,
+     0.1984
+    ],
+    "p_profit_le_0": 0.009
+   },
+   "test": {
+    "bets": 120,
+    "staked": 120.0,
+    "profit": 2.03,
+    "roi": 0.0169,
+    "hit_rate": 0.417,
+    "avg_odds": 2.56,
+    "fair_roi": -0.0789,
+    "roi_ci95": [
+     -0.2109,
+     0.2313
+    ],
+    "p_profit_le_0": 0.445
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_favourite>0.00",
+   "dev": {
+    "bets": 995,
+    "staked": 995.0,
+    "profit": 40.95,
+    "roi": 0.0412,
+    "hit_rate": 0.71,
+    "avg_odds": 1.49,
+    "fair_roi": -0.0506,
+    "roi_ci95": [
+     -0.0051,
+     0.088
+    ],
+    "p_profit_le_0": 0.042
+   },
+   "test": {
+    "bets": 220,
+    "staked": 220.0,
+    "profit": 15.2,
+    "roi": 0.0691,
+    "hit_rate": 0.732,
+    "avg_odds": 1.47,
+    "fair_roi": -0.0622,
+    "roi_ci95": [
+     -0.0114,
+     0.1491
+    ],
+    "p_profit_le_0": 0.042
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value>0.03",
+   "dev": {
+    "bets": 904,
+    "staked": 904.0,
+    "profit": 73.69,
+    "roi": 0.0815,
+    "hit_rate": 0.559,
+    "avg_odds": 2.12,
+    "fair_roi": -0.0548,
+    "roi_ci95": [
+     0.0148,
+     0.1459
+    ],
+    "p_profit_le_0": 0.009
+   },
+   "test": {
+    "bets": 118,
+    "staked": 118.0,
+    "profit": 8.87,
+    "roi": 0.0752,
+    "hit_rate": 0.559,
+    "avg_odds": 2.15,
+    "fair_roi": -0.0718,
+    "roi_ci95": [
+     -0.1076,
+     0.2567
+    ],
+    "p_profit_le_0": 0.217
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_underdog>0.03",
+   "dev": {
+    "bets": 499,
+    "staked": 499.0,
+    "profit": 47.38,
+    "roi": 0.095,
+    "hit_rate": 0.455,
+    "avg_odds": 2.56,
+    "fair_roi": -0.0591,
+    "roi_ci95": [
+     -0.0023,
+     0.2011
+    ],
+    "p_profit_le_0": 0.028
+   },
+   "test": {
+    "bets": 65,
+    "staked": 65.0,
+    "profit": 4.37,
+    "roi": 0.0672,
+    "hit_rate": 0.446,
+    "avg_odds": 2.63,
+    "fair_roi": -0.0785,
+    "roi_ci95": [
+     -0.2435,
+     0.3706
+    ],
+    "p_profit_le_0": 0.336
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_favourite>0.03",
+   "dev": {
+    "bets": 405,
+    "staked": 405.0,
+    "profit": 26.31,
+    "roi": 0.065,
+    "hit_rate": 0.686,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0495,
+    "roi_ci95": [
+     -0.0102,
+     0.1368
+    ],
+    "p_profit_le_0": 0.049
+   },
+   "test": {
+    "bets": 53,
+    "staked": 53.0,
+    "profit": 4.5,
+    "roi": 0.0849,
+    "hit_rate": 0.698,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0635,
+    "roi_ci95": [
+     -0.1031,
+     0.2698
+    ],
+    "p_profit_le_0": 0.191
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 563,
+    "staked": 563.0,
+    "profit": 0.36,
+    "roi": 0.0006,
+    "hit_rate": 0.488,
+    "avg_odds": 2.25,
+    "fair_roi": -0.0543,
+    "roi_ci95": [
+     -0.0839,
+     0.0862
+    ],
+    "p_profit_le_0": 0.505
+   },
+   "test": {
+    "bets": 58,
+    "staked": 58.0,
+    "profit": 10.31,
+    "roi": 0.1778,
+    "hit_rate": 0.552,
+    "avg_odds": 2.42,
+    "fair_roi": -0.0731,
+    "roi_ci95": [
+     -0.0792,
+     0.4467
+    ],
+    "p_profit_le_0": 0.09
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_underdog>0.05",
+   "dev": {
+    "bets": 364,
+    "staked": 364.0,
+    "profit": 1.14,
+    "roi": 0.0031,
+    "hit_rate": 0.412,
+    "avg_odds": 2.61,
+    "fair_roi": -0.0574,
+    "roi_ci95": [
+     -0.1146,
+     0.1194
+    ],
+    "p_profit_le_0": 0.486
+   },
+   "test": {
+    "bets": 42,
+    "staked": 42.0,
+    "profit": 6.85,
+    "roi": 0.1632,
+    "hit_rate": 0.476,
+    "avg_odds": 2.71,
+    "fair_roi": -0.0763,
+    "roi_ci95": [
+     -0.1751,
+     0.487
+    ],
+    "p_profit_le_0": 0.164
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_favourite>0.05",
+   "dev": {
+    "bets": 199,
+    "staked": 199.0,
+    "profit": -0.78,
+    "roi": -0.0039,
+    "hit_rate": 0.628,
+    "avg_odds": 1.6,
+    "fair_roi": -0.0487,
+    "roi_ci95": [
+     -0.1075,
+     0.0996
+    ],
+    "p_profit_le_0": 0.536
+   },
+   "test": {
+    "bets": 16,
+    "staked": 16.0,
+    "profit": 3.45,
+    "roi": 0.2159,
+    "hit_rate": 0.75,
+    "avg_odds": 1.64,
+    "fair_roi": -0.0648,
+    "roi_ci95": [
+     -0.1318,
+     0.5409
+    ],
+    "p_profit_le_0": 0.11
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 166,
+    "staked": 166.0,
+    "profit": 11.25,
+    "roi": 0.0678,
+    "hit_rate": 0.458,
+    "avg_odds": 2.6,
+    "fair_roi": -0.0539,
+    "roi_ci95": [
+     -0.1124,
+     0.2446
+    ],
+    "p_profit_le_0": 0.243
+   },
+   "test": {
+    "bets": 10,
+    "staked": 10.0,
+    "profit": -4.7,
+    "roi": -0.47,
+    "hit_rate": 0.2,
+    "avg_odds": 3.08,
+    "fair_roi": -0.0726,
+    "roi_ci95": [
+     -1.0,
+     0.3
+    ],
+    "p_profit_le_0": 0.893
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_underdog>0.10",
+   "dev": {
+    "bets": 151,
+    "staked": 151.0,
+    "profit": 7.79,
+    "roi": 0.0516,
+    "hit_rate": 0.43,
+    "avg_odds": 2.69,
+    "fair_roi": -0.0547,
+    "roi_ci95": [
+     -0.1359,
+     0.249
+    ],
+    "p_profit_le_0": 0.279
+   },
+   "test": {
+    "bets": 9,
+    "staked": 9.0,
+    "profit": -3.7,
+    "roi": -0.4111,
+    "hit_rate": 0.222,
+    "avg_odds": 3.25,
+    "fair_roi": -0.0742
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_favourite>0.10",
+   "dev": {
+    "bets": 15,
+    "staked": 15.0,
+    "profit": 3.46,
+    "roi": 0.2303,
+    "hit_rate": 0.733,
+    "avg_odds": 1.69,
+    "fair_roi": -0.0466,
+    "roi_ci95": [
+     -0.1965,
+     0.5707
+    ],
+    "p_profit_le_0": 0.136
+   },
+   "test": {
+    "bets": 1,
+    "staked": 1.0,
+    "profit": -1.0,
+    "roi": -1.0,
+    "hit_rate": 0.0,
+    "avg_odds": 1.54,
+    "fair_roi": -0.058
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value>0.15",
+   "dev": {
+    "bets": 50,
+    "staked": 50.0,
+    "profit": 0.35,
+    "roi": 0.007,
+    "hit_rate": 0.36,
+    "avg_odds": 2.88,
+    "fair_roi": -0.051,
+    "roi_ci95": [
+     -0.3375,
+     0.3785
+    ],
+    "p_profit_le_0": 0.47
+   },
+   "test": {
+    "bets": 4,
+    "staked": 4.0,
+    "profit": 1.3,
+    "roi": 0.325,
+    "hit_rate": 0.5,
+    "avg_odds": 2.7,
+    "fair_roi": -0.0687
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_underdog>0.15",
+   "dev": {
+    "bets": 50,
+    "staked": 50.0,
+    "profit": 0.35,
+    "roi": 0.007,
+    "hit_rate": 0.36,
+    "avg_odds": 2.88,
+    "fair_roi": -0.051,
+    "roi_ci95": [
+     -0.3348,
+     0.39
+    ],
+    "p_profit_le_0": 0.465
+   },
+   "test": {
+    "bets": 4,
+    "staked": 4.0,
+    "profit": 1.3,
+    "roi": 0.325,
+    "hit_rate": 0.5,
+    "avg_odds": 2.7,
+    "fair_roi": -0.0687
+   }
+  },
+  {
+   "price": "close_worst",
+   "model": "p_close",
+   "strategy": "value_favourite>0.15",
+   "dev": {
+    "bets": 0
+   },
+   "test": {
+    "bets": 0
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -101.04,
+    "roi": -0.0265,
+    "hit_rate": 0.658,
+    "avg_odds": 1.52,
+    "fair_roi": -0.0392,
+    "roi_ci95": [
+     -0.0486,
+     -0.0029
+    ],
+    "p_profit_le_0": 0.988
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": -0.48,
+    "roi": -0.0003,
+    "hit_rate": 0.702,
+    "avg_odds": 1.46,
+    "fair_roi": -0.0445,
+    "roi_ci95": [
+     -0.0352,
+     0.0345
+    ],
+    "p_profit_le_0": 0.504
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "underdog",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -353.83,
+    "roi": -0.0926,
+    "hit_rate": 0.342,
+    "avg_odds": 3.0,
+    "fair_roi": -0.0374,
+    "roi_ci95": [
+     -0.1326,
+     -0.0516
+    ],
+    "p_profit_le_0": 1.0
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": -217.75,
+    "roi": -0.1468,
+    "hit_rate": 0.298,
+    "avg_odds": 3.33,
+    "fair_roi": -0.0403,
+    "roi_ci95": [
+     -0.2228,
+     -0.0746
+    ],
+    "p_profit_le_0": 1.0
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -35.06,
+    "roi": -0.0092,
+    "hit_rate": 0.663,
+    "avg_odds": 1.53,
+    "fair_roi": -0.0392,
+    "roi_ci95": [
+     -0.0313,
+     0.0138
+    ],
+    "p_profit_le_0": 0.796
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": 9.99,
+    "roi": 0.0067,
+    "hit_rate": 0.704,
+    "avg_odds": 1.46,
+    "fair_roi": -0.0445,
+    "roi_ci95": [
+     -0.0275,
+     0.042
+    ],
+    "p_profit_le_0": 0.326
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_conf_stake",
+   "dev": {
+    "bets": 3820,
+    "staked": 16133.41,
+    "profit": 30.77,
+    "roi": 0.0019,
+    "hit_rate": 0.663,
+    "avg_odds": 1.53,
+    "fair_roi": -0.0389,
+    "roi_ci95": [
+     -0.0192,
+     0.0227
+    ],
+    "p_profit_le_0": 0.446
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 7053.02,
+    "profit": 25.33,
+    "roi": 0.0036,
+    "hit_rate": 0.704,
+    "avg_odds": 1.46,
+    "fair_roi": -0.0445,
+    "roi_ci95": [
+     -0.0273,
+     0.0322
+    ],
+    "p_profit_le_0": 0.408
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "dev": {
+    "bets": 253,
+    "staked": 253.0,
+    "profit": 23.92,
+    "roi": 0.0945,
+    "hit_rate": 0.542,
+    "avg_odds": 2.03,
+    "fair_roi": -0.0425,
+    "roi_ci95": [
+     -0.024,
+     0.2175
+    ],
+    "p_profit_le_0": 0.064
+   },
+   "test": {
+    "bets": 55,
+    "staked": 55.0,
+    "profit": 3.14,
+    "roi": 0.0571,
+    "hit_rate": 0.527,
+    "avg_odds": 2.0,
+    "fair_roi": -0.0452,
+    "roi_ci95": [
+     -0.2301,
+     0.3189
+    ],
+    "p_profit_le_0": 0.338
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 2385,
+    "staked": 2385.0,
+    "profit": 133.53,
+    "roi": 0.056,
+    "hit_rate": 0.599,
+    "avg_odds": 1.94,
+    "fair_roi": -0.0382,
+    "roi_ci95": [
+     0.0159,
+     0.0944
+    ],
+    "p_profit_le_0": 0.001
+   },
+   "test": {
+    "bets": 703,
+    "staked": 703.0,
+    "profit": -9.02,
+    "roi": -0.0128,
+    "hit_rate": 0.592,
+    "avg_odds": 1.95,
+    "fair_roi": -0.0432,
+    "roi_ci95": [
+     -0.0821,
+     0.0617
+    ],
+    "p_profit_le_0": 0.622
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_underdog>0.00",
+   "dev": {
+    "bets": 957,
+    "staked": 957.0,
+    "profit": 77.29,
+    "roi": 0.0808,
+    "hit_rate": 0.44,
+    "avg_odds": 2.6,
+    "fair_roi": -0.0378,
+    "roi_ci95": [
+     0.0047,
+     0.1578
+    ],
+    "p_profit_le_0": 0.017
+   },
+   "test": {
+    "bets": 257,
+    "staked": 257.0,
+    "profit": -34.71,
+    "roi": -0.1351,
+    "hit_rate": 0.339,
+    "avg_odds": 2.8,
+    "fair_roi": -0.0414,
+    "roi_ci95": [
+     -0.2954,
+     0.0241
+    ],
+    "p_profit_le_0": 0.951
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_favourite>0.00",
+   "dev": {
+    "bets": 1428,
+    "staked": 1428.0,
+    "profit": 56.24,
+    "roi": 0.0394,
+    "hit_rate": 0.705,
+    "avg_odds": 1.5,
+    "fair_roi": -0.0385,
+    "roi_ci95": [
+     -0.0007,
+     0.075
+    ],
+    "p_profit_le_0": 0.027
+   },
+   "test": {
+    "bets": 446,
+    "staked": 446.0,
+    "profit": 25.69,
+    "roi": 0.0576,
+    "hit_rate": 0.738,
+    "avg_odds": 1.45,
+    "fair_roi": -0.0443,
+    "roi_ci95": [
+     -0.0006,
+     0.1161
+    ],
+    "p_profit_le_0": 0.026
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.03",
+   "dev": {
+    "bets": 1384,
+    "staked": 1384.0,
+    "profit": 124.6,
+    "roi": 0.09,
+    "hit_rate": 0.565,
+    "avg_odds": 2.11,
+    "fair_roi": -0.0379,
+    "roi_ci95": [
+     0.0343,
+     0.1447
+    ],
+    "p_profit_le_0": 0.002
+   },
+   "test": {
+    "bets": 290,
+    "staked": 290.0,
+    "profit": 18.34,
+    "roi": 0.0632,
+    "hit_rate": 0.552,
+    "avg_odds": 2.21,
+    "fair_roi": -0.0422,
+    "roi_ci95": [
+     -0.0608,
+     0.1906
+    ],
+    "p_profit_le_0": 0.175
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_underdog>0.03",
+   "dev": {
+    "bets": 712,
+    "staked": 712.0,
+    "profit": 87.98,
+    "roi": 0.1236,
+    "hit_rate": 0.455,
+    "avg_odds": 2.62,
+    "fair_roi": -0.0374,
+    "roi_ci95": [
+     0.0405,
+     0.2113
+    ],
+    "p_profit_le_0": 0.004
+   },
+   "test": {
+    "bets": 149,
+    "staked": 149.0,
+    "profit": 0.39,
+    "roi": 0.0026,
+    "hit_rate": 0.389,
+    "avg_odds": 2.82,
+    "fair_roi": -0.0409,
+    "roi_ci95": [
+     -0.226,
+     0.2465
+    ],
+    "p_profit_le_0": 0.488
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_favourite>0.03",
+   "dev": {
+    "bets": 672,
+    "staked": 672.0,
+    "profit": 36.62,
+    "roi": 0.0545,
+    "hit_rate": 0.682,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0384,
+    "roi_ci95": [
+     -0.0056,
+     0.1088
+    ],
+    "p_profit_le_0": 0.036
+   },
+   "test": {
+    "bets": 141,
+    "staked": 141.0,
+    "profit": 17.95,
+    "roi": 0.1273,
+    "hit_rate": 0.723,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0437,
+    "roi_ci95": [
+     0.0176,
+     0.2345
+    ],
+    "p_profit_le_0": 0.011
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 904,
+    "staked": 904.0,
+    "profit": 87.91,
+    "roi": 0.0972,
+    "hit_rate": 0.532,
+    "avg_odds": 2.25,
+    "fair_roi": -0.0375,
+    "roi_ci95": [
+     0.027,
+     0.1627
+    ],
+    "p_profit_le_0": 0.002
+   },
+   "test": {
+    "bets": 168,
+    "staked": 168.0,
+    "profit": 16.91,
+    "roi": 0.1006,
+    "hit_rate": 0.518,
+    "avg_odds": 2.42,
+    "fair_roi": -0.0414,
+    "roi_ci95": [
+     -0.0626,
+     0.2753
+    ],
+    "p_profit_le_0": 0.133
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_underdog>0.05",
+   "dev": {
+    "bets": 551,
+    "staked": 551.0,
+    "profit": 64.57,
+    "roi": 0.1172,
+    "hit_rate": 0.446,
+    "avg_odds": 2.65,
+    "fair_roi": -0.037,
+    "roi_ci95": [
+     0.0133,
+     0.226
+    ],
+    "p_profit_le_0": 0.013
+   },
+   "test": {
+    "bets": 107,
+    "staked": 107.0,
+    "profit": 8.87,
+    "roi": 0.0829,
+    "hit_rate": 0.411,
+    "avg_odds": 2.88,
+    "fair_roi": -0.0402,
+    "roi_ci95": [
+     -0.1794,
+     0.3549
+    ],
+    "p_profit_le_0": 0.275
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_favourite>0.05",
+   "dev": {
+    "bets": 353,
+    "staked": 353.0,
+    "profit": 23.34,
+    "roi": 0.0661,
+    "hit_rate": 0.666,
+    "avg_odds": 1.61,
+    "fair_roi": -0.0383,
+    "roi_ci95": [
+     -0.0073,
+     0.1437
+    ],
+    "p_profit_le_0": 0.044
+   },
+   "test": {
+    "bets": 61,
+    "staked": 61.0,
+    "profit": 8.04,
+    "roi": 0.1318,
+    "hit_rate": 0.705,
+    "avg_odds": 1.61,
+    "fair_roi": -0.0436,
+    "roi_ci95": [
+     -0.0516,
+     0.3218
+    ],
+    "p_profit_le_0": 0.08
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 294,
+    "staked": 294.0,
+    "profit": -3.08,
+    "roi": -0.0105,
+    "hit_rate": 0.412,
+    "avg_odds": 2.63,
+    "fair_roi": -0.0361,
+    "roi_ci95": [
+     -0.1466,
+     0.1208
+    ],
+    "p_profit_le_0": 0.562
+   },
+   "test": {
+    "bets": 42,
+    "staked": 42.0,
+    "profit": 5.53,
+    "roi": 0.1316,
+    "hit_rate": 0.452,
+    "avg_odds": 2.79,
+    "fair_roi": -0.0396,
+    "roi_ci95": [
+     -0.2472,
+     0.5133
+    ],
+    "p_profit_le_0": 0.243
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_underdog>0.10",
+   "dev": {
+    "bets": 259,
+    "staked": 259.0,
+    "profit": -3.6,
+    "roi": -0.0139,
+    "hit_rate": 0.386,
+    "avg_odds": 2.75,
+    "fair_roi": -0.0359,
+    "roi_ci95": [
+     -0.161,
+     0.1404
+    ],
+    "p_profit_le_0": 0.581
+   },
+   "test": {
+    "bets": 36,
+    "staked": 36.0,
+    "profit": 4.35,
+    "roi": 0.1207,
+    "hit_rate": 0.417,
+    "avg_odds": 2.96,
+    "fair_roi": -0.0389,
+    "roi_ci95": [
+     -0.3175,
+     0.5643
+    ],
+    "p_profit_le_0": 0.312
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_favourite>0.10",
+   "dev": {
+    "bets": 35,
+    "staked": 35.0,
+    "profit": 0.52,
+    "roi": 0.0148,
+    "hit_rate": 0.6,
+    "avg_odds": 1.71,
+    "fair_roi": -0.0374,
+    "roi_ci95": [
+     -0.2661,
+     0.2805
+    ],
+    "p_profit_le_0": 0.425
+   },
+   "test": {
+    "bets": 6,
+    "staked": 6.0,
+    "profit": 1.18,
+    "roi": 0.1971,
+    "hit_rate": 0.667,
+    "avg_odds": 1.73,
+    "fair_roi": -0.0438
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.15",
+   "dev": {
+    "bets": 94,
+    "staked": 94.0,
+    "profit": -0.9,
+    "roi": -0.0096,
+    "hit_rate": 0.372,
+    "avg_odds": 2.92,
+    "fair_roi": -0.0346,
+    "roi_ci95": [
+     -0.2722,
+     0.2586
+    ],
+    "p_profit_le_0": 0.543
+   },
+   "test": {
+    "bets": 10,
+    "staked": 10.0,
+    "profit": -0.44,
+    "roi": -0.0435,
+    "hit_rate": 0.3,
+    "avg_odds": 3.33,
+    "fair_roi": -0.0286,
+    "roi_ci95": [
+     -1.0,
+     0.983
+    ],
+    "p_profit_le_0": 0.55
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_underdog>0.15",
+   "dev": {
+    "bets": 92,
+    "staked": 92.0,
+    "profit": -2.49,
+    "roi": -0.0271,
+    "hit_rate": 0.359,
+    "avg_odds": 2.94,
+    "fair_roi": -0.0345,
+    "roi_ci95": [
+     -0.2874,
+     0.248
+    ],
+    "p_profit_le_0": 0.573
+   },
+   "test": {
+    "bets": 10,
+    "staked": 10.0,
+    "profit": -0.44,
+    "roi": -0.0435,
+    "hit_rate": 0.3,
+    "avg_odds": 3.33,
+    "fair_roi": -0.0286,
+    "roi_ci95": [
+     -1.0,
+     0.983
+    ],
+    "p_profit_le_0": 0.555
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value_favourite>0.15",
+   "dev": {
+    "bets": 2,
+    "staked": 2.0,
+    "profit": 1.59,
+    "roi": 0.7957,
+    "hit_rate": 1.0,
+    "avg_odds": 1.8,
+    "fair_roi": -0.0396
+   },
+   "test": {
+    "bets": 0
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "favourite",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -25.42,
+    "roi": -0.0067,
+    "hit_rate": 0.659,
+    "avg_odds": 1.54,
+    "fair_roi": -0.0218,
+    "roi_ci95": [
+     -0.03,
+     0.0152
+    ],
+    "p_profit_le_0": 0.713
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": 36.83,
+    "roi": 0.0248,
+    "hit_rate": 0.703,
+    "avg_odds": 1.49,
+    "fair_roi": -0.0215,
+    "roi_ci95": [
+     -0.0107,
+     0.0625
+    ],
+    "p_profit_le_0": 0.079
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "underdog",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -239.21,
+    "roi": -0.0626,
+    "hit_rate": 0.341,
+    "avg_odds": 3.12,
+    "fair_roi": -0.0023,
+    "roi_ci95": [
+     -0.1053,
+     -0.0208
+    ],
+    "p_profit_le_0": 0.998
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": -147.12,
+    "roi": -0.0992,
+    "hit_rate": 0.297,
+    "avg_odds": 3.55,
+    "fair_roi": 0.0154,
+    "roi_ci95": [
+     -0.1773,
+     -0.0221
+    ],
+    "p_profit_le_0": 0.992
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "pick",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": 34.58,
+    "roi": 0.0091,
+    "hit_rate": 0.663,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0215,
+    "roi_ci95": [
+     -0.015,
+     0.0329
+    ],
+    "p_profit_le_0": 0.23
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": 45.69,
+    "roi": 0.0308,
+    "hit_rate": 0.704,
+    "avg_odds": 1.5,
+    "fair_roi": -0.0213,
+    "roi_ci95": [
+     -0.0043,
+     0.0631
+    ],
+    "p_profit_le_0": 0.049
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "pick_conf_stake",
+   "dev": {
+    "bets": 3820,
+    "staked": 16133.41,
+    "profit": 300.81,
+    "roi": 0.0186,
+    "hit_rate": 0.663,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0228,
+    "roi_ci95": [
+     -0.0017,
+     0.0399
+    ],
+    "p_profit_le_0": 0.043
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 7053.02,
+    "profit": 178.62,
+    "roi": 0.0253,
+    "hit_rate": 0.704,
+    "avg_odds": 1.5,
+    "fair_roi": -0.0236,
+    "roi_ci95": [
+     -0.0074,
+     0.0565
+    ],
+    "p_profit_le_0": 0.06
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "dev": {
+    "bets": 257,
+    "staked": 257.0,
+    "profit": 26.84,
+    "roi": 0.1044,
+    "hit_rate": 0.533,
+    "avg_odds": 2.08,
+    "fair_roi": -0.0166,
+    "roi_ci95": [
+     -0.0208,
+     0.2239
+    ],
+    "p_profit_le_0": 0.046
+   },
+   "test": {
+    "bets": 54,
+    "staked": 54.0,
+    "profit": 4.16,
+    "roi": 0.077,
+    "hit_rate": 0.519,
+    "avg_odds": 2.07,
+    "fair_roi": -0.0105,
+    "roi_ci95": [
+     -0.2163,
+     0.343
+    ],
+    "p_profit_le_0": 0.304
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 3127,
+    "staked": 3127.0,
+    "profit": 215.48,
+    "roi": 0.0689,
+    "hit_rate": 0.592,
+    "avg_odds": 2.01,
+    "fair_roi": -0.013,
+    "roi_ci95": [
+     0.035,
+     0.1048
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 1195,
+    "staked": 1195.0,
+    "profit": 72.7,
+    "roi": 0.0608,
+    "hit_rate": 0.6,
+    "avg_odds": 2.1,
+    "fair_roi": -0.0072,
+    "roi_ci95": [
+     0.0042,
+     0.121
+    ],
+    "p_profit_le_0": 0.018
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_underdog>0.00",
+   "dev": {
+    "bets": 1263,
+    "staked": 1263.0,
+    "profit": 119.63,
+    "roi": 0.0947,
+    "hit_rate": 0.42,
+    "avg_odds": 2.77,
+    "fair_roi": 0.0004,
+    "roi_ci95": [
+     0.0284,
+     0.1607
+    ],
+    "p_profit_le_0": 0.004
+   },
+   "test": {
+    "bets": 490,
+    "staked": 490.0,
+    "profit": 17.3,
+    "roi": 0.0353,
+    "hit_rate": 0.378,
+    "avg_odds": 3.09,
+    "fair_roi": 0.0176,
+    "roi_ci95": [
+     -0.0864,
+     0.1599
+    ],
+    "p_profit_le_0": 0.282
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_favourite>0.00",
+   "dev": {
+    "bets": 1945,
+    "staked": 1945.0,
+    "profit": 89.16,
+    "roi": 0.0458,
+    "hit_rate": 0.7,
+    "avg_odds": 1.52,
+    "fair_roi": -0.0193,
+    "roi_ci95": [
+     0.0135,
+     0.0791
+    ],
+    "p_profit_le_0": 0.002
+   },
+   "test": {
+    "bets": 761,
+    "staked": 761.0,
+    "profit": 41.68,
+    "roi": 0.0548,
+    "hit_rate": 0.732,
+    "avg_odds": 1.47,
+    "fair_roi": -0.0194,
+    "roi_ci95": [
+     0.0135,
+     0.0997
+    ],
+    "p_profit_le_0": 0.007
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.03",
+   "dev": {
+    "bets": 2063,
+    "staked": 2063.0,
+    "profit": 196.91,
+    "roi": 0.0954,
+    "hit_rate": 0.563,
+    "avg_odds": 2.15,
+    "fair_roi": -0.0091,
+    "roi_ci95": [
+     0.0465,
+     0.1436
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 694,
+    "staked": 694.0,
+    "profit": 35.33,
+    "roi": 0.0509,
+    "hit_rate": 0.549,
+    "avg_odds": 2.34,
+    "fair_roi": 0.0012,
+    "roi_ci95": [
+     -0.0323,
+     0.1306
+    ],
+    "p_profit_le_0": 0.114
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_underdog>0.03",
+   "dev": {
+    "bets": 993,
+    "staked": 993.0,
+    "profit": 132.33,
+    "roi": 0.1333,
+    "hit_rate": 0.431,
+    "avg_odds": 2.78,
+    "fair_roi": 0.0016,
+    "roi_ci95": [
+     0.0525,
+     0.2144
+    ],
+    "p_profit_le_0": 0.002
+   },
+   "test": {
+    "bets": 342,
+    "staked": 342.0,
+    "profit": -3.1,
+    "roi": -0.0091,
+    "hit_rate": 0.363,
+    "avg_odds": 3.18,
+    "fair_roi": 0.0222,
+    "roi_ci95": [
+     -0.1575,
+     0.1461
+    ],
+    "p_profit_le_0": 0.552
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_favourite>0.03",
+   "dev": {
+    "bets": 1097,
+    "staked": 1097.0,
+    "profit": 63.38,
+    "roi": 0.0578,
+    "hit_rate": 0.684,
+    "avg_odds": 1.57,
+    "fair_roi": -0.0167,
+    "roi_ci95": [
+     0.0127,
+     0.1044
+    ],
+    "p_profit_le_0": 0.005
+   },
+   "test": {
+    "bets": 370,
+    "staked": 370.0,
+    "profit": 32.45,
+    "roi": 0.0877,
+    "hit_rate": 0.714,
+    "avg_odds": 1.54,
+    "fair_roi": -0.0147,
+    "roi_ci95": [
+     0.0176,
+     0.1551
+    ],
+    "p_profit_le_0": 0.004
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 1473,
+    "staked": 1473.0,
+    "profit": 168.56,
+    "roi": 0.1144,
+    "hit_rate": 0.542,
+    "avg_odds": 2.27,
+    "fair_roi": -0.006,
+    "roi_ci95": [
+     0.061,
+     0.1713
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 443,
+    "staked": 443.0,
+    "profit": 1.85,
+    "roi": 0.0042,
+    "hit_rate": 0.485,
+    "avg_odds": 2.58,
+    "fair_roi": 0.0087,
+    "roi_ci95": [
+     -0.117,
+     0.1203
+    ],
+    "p_profit_le_0": 0.449
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_underdog>0.05",
+   "dev": {
+    "bets": 821,
+    "staked": 821.0,
+    "profit": 101.69,
+    "roi": 0.1239,
+    "hit_rate": 0.426,
+    "avg_odds": 2.8,
+    "fair_roi": 0.0028,
+    "roi_ci95": [
+     0.0381,
+     0.2154
+    ],
+    "p_profit_le_0": 0.001
+   },
+   "test": {
+    "bets": 267,
+    "staked": 267.0,
+    "profit": -23.72,
+    "roi": -0.0888,
+    "hit_rate": 0.33,
+    "avg_odds": 3.23,
+    "fair_roi": 0.0245,
+    "roi_ci95": [
+     -0.2638,
+     0.0844
+    ],
+    "p_profit_le_0": 0.828
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_favourite>0.05",
+   "dev": {
+    "bets": 669,
+    "staked": 669.0,
+    "profit": 62.89,
+    "roi": 0.094,
+    "hit_rate": 0.683,
+    "avg_odds": 1.62,
+    "fair_roi": -0.014,
+    "roi_ci95": [
+     0.0343,
+     0.1522
+    ],
+    "p_profit_le_0": 0.001
+   },
+   "test": {
+    "bets": 188,
+    "staked": 188.0,
+    "profit": 23.31,
+    "roi": 0.124,
+    "hit_rate": 0.707,
+    "avg_odds": 1.61,
+    "fair_roi": -0.009,
+    "roi_ci95": [
+     0.0331,
+     0.2206
+    ],
+    "p_profit_le_0": 0.004
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 580,
+    "staked": 580.0,
+    "profit": 89.06,
+    "roi": 0.1535,
+    "hit_rate": 0.488,
+    "avg_odds": 2.59,
+    "fair_roi": 0.0032,
+    "roi_ci95": [
+     0.0486,
+     0.2608
+    ],
+    "p_profit_le_0": 0.002
+   },
+   "test": {
+    "bets": 137,
+    "staked": 137.0,
+    "profit": 19.79,
+    "roi": 0.1445,
+    "hit_rate": 0.445,
+    "avg_odds": 3.14,
+    "fair_roi": 0.0298,
+    "roi_ci95": [
+     -0.1099,
+     0.4015
+    ],
+    "p_profit_le_0": 0.149
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_underdog>0.10",
+   "dev": {
+    "bets": 443,
+    "staked": 443.0,
+    "profit": 70.87,
+    "roi": 0.16,
+    "hit_rate": 0.436,
+    "avg_odds": 2.86,
+    "fair_roi": 0.0064,
+    "roi_ci95": [
+     0.0344,
+     0.2878
+    ],
+    "p_profit_le_0": 0.004
+   },
+   "test": {
+    "bets": 113,
+    "staked": 113.0,
+    "profit": 11.31,
+    "roi": 0.1001,
+    "hit_rate": 0.381,
+    "avg_odds": 3.44,
+    "fair_roi": 0.0376,
+    "roi_ci95": [
+     -0.1984,
+     0.4142
+    ],
+    "p_profit_le_0": 0.275
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_favourite>0.10",
+   "dev": {
+    "bets": 140,
+    "staked": 140.0,
+    "profit": 19.35,
+    "roi": 0.1382,
+    "hit_rate": 0.657,
+    "avg_odds": 1.74,
+    "fair_roi": -0.004,
+    "roi_ci95": [
+     -0.0016,
+     0.2753
+    ],
+    "p_profit_le_0": 0.026
+   },
+   "test": {
+    "bets": 28,
+    "staked": 28.0,
+    "profit": 6.43,
+    "roi": 0.2298,
+    "hit_rate": 0.679,
+    "avg_odds": 1.78,
+    "fair_roi": 0.0157,
+    "roi_ci95": [
+     -0.078,
+     0.5282
+    ],
+    "p_profit_le_0": 0.075
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.15",
+   "dev": {
+    "bets": 221,
+    "staked": 221.0,
+    "profit": 33.49,
+    "roi": 0.1515,
+    "hit_rate": 0.416,
+    "avg_odds": 2.94,
+    "fair_roi": 0.0165,
+    "roi_ci95": [
+     -0.0335,
+     0.3339
+    ],
+    "p_profit_le_0": 0.056
+   },
+   "test": {
+    "bets": 47,
+    "staked": 47.0,
+    "profit": 14.41,
+    "roi": 0.3065,
+    "hit_rate": 0.468,
+    "avg_odds": 3.36,
+    "fair_roi": 0.0486,
+    "roi_ci95": [
+     -0.1148,
+     0.7847
+    ],
+    "p_profit_le_0": 0.084
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_underdog>0.15",
+   "dev": {
+    "bets": 207,
+    "staked": 207.0,
+    "profit": 30.57,
+    "roi": 0.1477,
+    "hit_rate": 0.401,
+    "avg_odds": 3.02,
+    "fair_roi": 0.0151,
+    "roi_ci95": [
+     -0.0481,
+     0.3576
+    ],
+    "p_profit_le_0": 0.076
+   },
+   "test": {
+    "bets": 43,
+    "staked": 43.0,
+    "profit": 8.69,
+    "roi": 0.2021,
+    "hit_rate": 0.395,
+    "avg_odds": 3.51,
+    "fair_roi": 0.0534,
+    "roi_ci95": [
+     -0.29,
+     0.6895
+    ],
+    "p_profit_le_0": 0.224
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value_favourite>0.15",
+   "dev": {
+    "bets": 15,
+    "staked": 15.0,
+    "profit": 3.72,
+    "roi": 0.2479,
+    "hit_rate": 0.667,
+    "avg_odds": 1.9,
+    "fair_roi": 0.0444,
+    "roi_ci95": [
+     -0.1152,
+     0.6248
+    ],
+    "p_profit_le_0": 0.09
+   },
+   "test": {
+    "bets": 6,
+    "staked": 6.0,
+    "profit": 5.67,
+    "roi": 0.9446,
+    "hit_rate": 1.0,
+    "avg_odds": 1.94,
+    "fair_roi": 0.0637
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "pick",
+   "dev": {
+    "bets": 3820,
+    "staked": 3820.0,
+    "profit": -1.07,
+    "roi": -0.0003,
+    "hit_rate": 0.655,
+    "avg_odds": 1.55,
+    "fair_roi": -0.04,
+    "roi_ci95": [
+     -0.0244,
+     0.0246
+    ],
+    "p_profit_le_0": 0.504
+   },
+   "test": {
+    "bets": 1483,
+    "staked": 1483.0,
+    "profit": 25.78,
+    "roi": 0.0174,
+    "hit_rate": 0.686,
+    "avg_odds": 1.51,
+    "fair_roi": -0.0243,
+    "roi_ci95": [
+     -0.0176,
+     0.0504
+    ],
+    "p_profit_le_0": 0.16
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "pick_underdog",
+   "dev": {
+    "bets": 311,
+    "staked": 311.0,
+    "profit": 67.03,
+    "roi": 0.2155,
+    "hit_rate": 0.598,
+    "avg_odds": 2.02,
+    "fair_roi": 0.0467,
+    "roi_ci95": [
+     0.1063,
+     0.3199
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 109,
+    "staked": 109.0,
+    "profit": 25.83,
+    "roi": 0.2369,
+    "hit_rate": 0.596,
+    "avg_odds": 2.06,
+    "fair_roi": 0.137,
+    "roi_ci95": [
+     0.0428,
+     0.4247
+    ],
+    "p_profit_le_0": 0.006
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 2622,
+    "staked": 2622.0,
+    "profit": 286.61,
+    "roi": 0.1093,
+    "hit_rate": 0.638,
+    "avg_odds": 1.85,
+    "fair_roi": 0.0191,
+    "roi_ci95": [
+     0.0726,
+     0.1451
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 1053,
+    "staked": 1053.0,
+    "profit": 88.17,
+    "roi": 0.0837,
+    "hit_rate": 0.638,
+    "avg_odds": 1.89,
+    "fair_roi": 0.0397,
+    "roi_ci95": [
+     0.0288,
+     0.1441
+    ],
+    "p_profit_le_0": 0.003
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.03",
+   "dev": {
+    "bets": 1839,
+    "staked": 1839.0,
+    "profit": 265.98,
+    "roi": 0.1446,
+    "hit_rate": 0.64,
+    "avg_odds": 1.9,
+    "fair_roi": 0.0366,
+    "roi_ci95": [
+     0.1025,
+     0.1873
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 713,
+    "staked": 713.0,
+    "profit": 69.45,
+    "roi": 0.0974,
+    "hit_rate": 0.612,
+    "avg_odds": 2.0,
+    "fair_roi": 0.0654,
+    "roi_ci95": [
+     0.0245,
+     0.1684
+    ],
+    "p_profit_le_0": 0.004
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 1382,
+    "staked": 1382.0,
+    "profit": 224.98,
+    "roi": 0.1628,
+    "hit_rate": 0.628,
+    "avg_odds": 1.96,
+    "fair_roi": 0.0483,
+    "roi_ci95": [
+     0.1124,
+     0.2113
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 552,
+    "staked": 552.0,
+    "profit": 64.56,
+    "roi": 0.117,
+    "hit_rate": 0.598,
+    "avg_odds": 2.08,
+    "fair_roi": 0.0843,
+    "roi_ci95": [
+     0.0299,
+     0.2012
+    ],
+    "p_profit_le_0": 0.004
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 580,
+    "staked": 580.0,
+    "profit": 130.45,
+    "roi": 0.2249,
+    "hit_rate": 0.59,
+    "avg_odds": 2.21,
+    "fair_roi": 0.0936,
+    "roi_ci95": [
+     0.1382,
+     0.3124
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 226,
+    "staked": 226.0,
+    "profit": 54.5,
+    "roi": 0.2411,
+    "hit_rate": 0.58,
+    "avg_odds": 2.35,
+    "fair_roi": 0.151,
+    "roi_ci95": [
+     0.1126,
+     0.3801
+    ],
+    "p_profit_le_0": 0.0
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.15",
+   "dev": {
+    "bets": 237,
+    "staked": 237.0,
+    "profit": 85.03,
+    "roi": 0.3588,
+    "hit_rate": 0.586,
+    "avg_odds": 2.46,
+    "fair_roi": 0.1574,
+    "roi_ci95": [
+     0.2103,
+     0.5119
+    ],
+    "p_profit_le_0": 0.0
+   },
+   "test": {
+    "bets": 99,
+    "staked": 99.0,
+    "profit": 29.17,
+    "roi": 0.2946,
+    "hit_rate": 0.535,
+    "avg_odds": 2.66,
+    "fair_roi": 0.1999,
+    "roi_ci95": [
+     0.0418,
+     0.5441
+    ],
+    "p_profit_le_0": 0.011
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_stats",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 2367,
+    "staked": 2367.0,
+    "profit": -58.67,
+    "roi": -0.0248,
+    "hit_rate": 0.499,
+    "avg_odds": 2.28,
+    "fair_roi": -0.0383,
+    "roi_ci95": [
+     -0.0692,
+     0.0206
+    ],
+    "p_profit_le_0": 0.862
+   },
+   "test": {
+    "bets": 797,
+    "staked": 797.0,
+    "profit": 1.27,
+    "roi": 0.0016,
+    "hit_rate": 0.478,
+    "avg_odds": 2.53,
+    "fair_roi": -0.0418,
+    "roi_ci95": [
+     -0.0652,
+     0.0726
+    ],
+    "p_profit_le_0": 0.496
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_stats",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 1783,
+    "staked": 1783.0,
+    "profit": -50.72,
+    "roi": -0.0284,
+    "hit_rate": 0.478,
+    "avg_odds": 2.38,
+    "fair_roi": -0.0383,
+    "roi_ci95": [
+     -0.0795,
+     0.0205
+    ],
+    "p_profit_le_0": 0.867
+   },
+   "test": {
+    "bets": 578,
+    "staked": 578.0,
+    "profit": -1.44,
+    "roi": -0.0025,
+    "hit_rate": 0.46,
+    "avg_odds": 2.62,
+    "fair_roi": -0.0418,
+    "roi_ci95": [
+     -0.0891,
+     0.0825
+    ],
+    "p_profit_le_0": 0.527
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_stats",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 1277,
+    "staked": 1277.0,
+    "profit": 9.53,
+    "roi": 0.0075,
+    "hit_rate": 0.476,
+    "avg_odds": 2.46,
+    "fair_roi": -0.0382,
+    "roi_ci95": [
+     -0.0525,
+     0.0701
+    ],
+    "p_profit_le_0": 0.415
+   },
+   "test": {
+    "bets": 397,
+    "staked": 397.0,
+    "profit": -5.33,
+    "roi": -0.0134,
+    "hit_rate": 0.438,
+    "avg_odds": 2.71,
+    "fair_roi": -0.0415,
+    "roi_ci95": [
+     -0.122,
+     0.0929
+    ],
+    "p_profit_le_0": 0.593
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_stats",
+   "strategy": "value>0.20",
+   "dev": {
+    "bets": 499,
+    "staked": 499.0,
+    "profit": 49.79,
+    "roi": 0.0998,
+    "hit_rate": 0.485,
+    "avg_odds": 2.59,
+    "fair_roi": -0.038,
+    "roi_ci95": [
+     -0.0089,
+     0.2082
+    ],
+    "p_profit_le_0": 0.039
+   },
+   "test": {
+    "bets": 155,
+    "staked": 155.0,
+    "profit": -21.09,
+    "roi": -0.1361,
+    "hit_rate": 0.348,
+    "avg_odds": 2.89,
+    "fair_roi": -0.0401,
+    "roi_ci95": [
+     -0.3227,
+     0.0615
+    ],
+    "p_profit_le_0": 0.913
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_stats",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 2352,
+    "staked": 2352.0,
+    "profit": 14.43,
+    "roi": 0.0061,
+    "hit_rate": 0.542,
+    "avg_odds": 2.1,
+    "fair_roi": -0.0177,
+    "roi_ci95": [
+     -0.0344,
+     0.0492
+    ],
+    "p_profit_le_0": 0.389
+   },
+   "test": {
+    "bets": 874,
+    "staked": 874.0,
+    "profit": -3.98,
+    "roi": -0.0046,
+    "hit_rate": 0.515,
+    "avg_odds": 2.32,
+    "fair_roi": -0.0033,
+    "roi_ci95": [
+     -0.0774,
+     0.0667
+    ],
+    "p_profit_le_0": 0.564
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_stats",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 1734,
+    "staked": 1734.0,
+    "profit": 64.27,
+    "roi": 0.0371,
+    "hit_rate": 0.542,
+    "avg_odds": 2.15,
+    "fair_roi": -0.0109,
+    "roi_ci95": [
+     -0.0115,
+     0.0872
+    ],
+    "p_profit_le_0": 0.062
+   },
+   "test": {
+    "bets": 649,
+    "staked": 649.0,
+    "profit": 7.41,
+    "roi": 0.0114,
+    "hit_rate": 0.496,
+    "avg_odds": 2.42,
+    "fair_roi": 0.0019,
+    "roi_ci95": [
+     -0.0711,
+     0.0954
+    ],
+    "p_profit_le_0": 0.396
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_stats",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 1225,
+    "staked": 1225.0,
+    "profit": 90.25,
+    "roi": 0.0737,
+    "hit_rate": 0.536,
+    "avg_odds": 2.23,
+    "fair_roi": -0.0087,
+    "roi_ci95": [
+     0.0127,
+     0.1376
+    ],
+    "p_profit_le_0": 0.009
+   },
+   "test": {
+    "bets": 455,
+    "staked": 455.0,
+    "profit": 25.86,
+    "roi": 0.0568,
+    "hit_rate": 0.495,
+    "avg_odds": 2.49,
+    "fair_roi": 0.0086,
+    "roi_ci95": [
+     -0.0379,
+     0.1607
+    ],
+    "p_profit_le_0": 0.143
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_stats",
+   "strategy": "value>0.20",
+   "dev": {
+    "bets": 444,
+    "staked": 444.0,
+    "profit": 68.85,
+    "roi": 0.1551,
+    "hit_rate": 0.529,
+    "avg_odds": 2.38,
+    "fair_roi": -0.0052,
+    "roi_ci95": [
+     0.0399,
+     0.2798
+    ],
+    "p_profit_le_0": 0.003
+   },
+   "test": {
+    "bets": 183,
+    "staked": 183.0,
+    "profit": 26.4,
+    "roi": 0.1443,
+    "hit_rate": 0.475,
+    "avg_odds": 2.73,
+    "fair_roi": 0.0243,
+    "roi_ci95": [
+     -0.043,
+     0.3317
+    ],
+    "p_profit_le_0": 0.063
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_mktcal",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 3,
+    "staked": 3.0,
+    "profit": 3.72,
+    "roi": 1.2405,
+    "hit_rate": 0.667,
+    "avg_odds": 3.19,
+    "fair_roi": 0.0467
+   },
+   "test": {
+    "bets": 1,
+    "staked": 1.0,
+    "profit": 0.62,
+    "roi": 0.6162,
+    "hit_rate": 1.0,
+    "avg_odds": 1.62,
+    "fair_roi": -0.0172
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_mktcal",
+   "strategy": "value>0.03",
+   "dev": {
+    "bets": 0
+   },
+   "test": {
+    "bets": 0
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_mktcal",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 0
+   },
+   "test": {
+    "bets": 0
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_mktcal",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 0
+   },
+   "test": {
+    "bets": 0
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_mktcal",
+   "strategy": "value>0.00",
+   "dev": {
+    "bets": 997,
+    "staked": 997.0,
+    "profit": 45.6,
+    "roi": 0.0457,
+    "hit_rate": 0.629,
+    "avg_odds": 1.83,
+    "fair_roi": 0.0069,
+    "roi_ci95": [
+     -0.013,
+     0.1068
+    ],
+    "p_profit_le_0": 0.062
+   },
+   "test": {
+    "bets": 749,
+    "staked": 749.0,
+    "profit": 15.85,
+    "roi": 0.0212,
+    "hit_rate": 0.698,
+    "avg_odds": 1.56,
+    "fair_roi": -0.0078,
+    "roi_ci95": [
+     -0.0276,
+     0.0708
+    ],
+    "p_profit_le_0": 0.212
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_mktcal",
+   "strategy": "value>0.03",
+   "dev": {
+    "bets": 109,
+    "staked": 109.0,
+    "profit": 6.82,
+    "roi": 0.0626,
+    "hit_rate": 0.44,
+    "avg_odds": 2.93,
+    "fair_roi": 0.0897,
+    "roi_ci95": [
+     -0.2198,
+     0.3634
+    ],
+    "p_profit_le_0": 0.345
+   },
+   "test": {
+    "bets": 58,
+    "staked": 58.0,
+    "profit": 5.23,
+    "roi": 0.0902,
+    "hit_rate": 0.517,
+    "avg_odds": 2.77,
+    "fair_roi": 0.0922,
+    "roi_ci95": [
+     -0.1815,
+     0.397
+    ],
+    "p_profit_le_0": 0.266
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_mktcal",
+   "strategy": "value>0.05",
+   "dev": {
+    "bets": 42,
+    "staked": 42.0,
+    "profit": 0.71,
+    "roi": 0.017,
+    "hit_rate": 0.381,
+    "avg_odds": 3.52,
+    "fair_roi": 0.1496,
+    "roi_ci95": [
+     -0.3862,
+     0.431
+    ],
+    "p_profit_le_0": 0.472
+   },
+   "test": {
+    "bets": 30,
+    "staked": 30.0,
+    "profit": 5.25,
+    "roi": 0.1752,
+    "hit_rate": 0.433,
+    "avg_odds": 3.42,
+    "fair_roi": 0.1492,
+    "roi_ci95": [
+     -0.3463,
+     0.8604
+    ],
+    "p_profit_le_0": 0.282
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_mktcal",
+   "strategy": "value>0.10",
+   "dev": {
+    "bets": 18,
+    "staked": 18.0,
+    "profit": -3.69,
+    "roi": -0.205,
+    "hit_rate": 0.278,
+    "avg_odds": 3.84,
+    "fair_roi": 0.2122,
+    "roi_ci95": [
+     -0.7474,
+     0.4944
+    ],
+    "p_profit_le_0": 0.751
+   },
+   "test": {
+    "bets": 9,
+    "staked": 9.0,
+    "profit": 2.4,
+    "roi": 0.2667,
+    "hit_rate": 0.333,
+    "avg_odds": 4.47,
+    "fair_roi": 0.2653
+   }
+  }
+ ],
+ "kelly": [
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "kelly_0.1_edge>0.00",
+   "dev": {
+    "bets": 2385,
+    "staked": 28.83,
+    "profit": 1.65,
+    "roi": 0.0571,
+    "hit_rate": 0.599,
+    "avg_odds": 1.94,
+    "fair_roi": -0.0386,
+    "roi_ci95": [
+     0.0152,
+     0.0972
+    ],
+    "p_profit_le_0": 0.005,
+    "bankroll_x": 2.645,
+    "max_drawdown": 0.151
+   },
+   "test": {
+    "bets": 703,
+    "staked": 3.94,
+    "profit": 0.19,
+    "roi": 0.0471,
+    "hit_rate": 0.592,
+    "avg_odds": 1.95,
+    "fair_roi": -0.0432,
+    "roi_ci95": [
+     -0.0225,
+     0.1175
+    ],
+    "p_profit_le_0": 0.092,
+    "bankroll_x": 1.185,
+    "max_drawdown": 0.065
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "kelly_0.1_edge>0.05",
+   "dev": {
+    "bets": 904,
+    "staked": 12.88,
+    "profit": 0.86,
+    "roi": 0.0665,
+    "hit_rate": 0.532,
+    "avg_odds": 2.25,
+    "fair_roi": -0.0379,
+    "roi_ci95": [
+     0.0029,
+     0.131
+    ],
+    "p_profit_le_0": 0.018,
+    "bankroll_x": 1.857,
+    "max_drawdown": 0.179
+   },
+   "test": {
+    "bets": 168,
+    "staked": 1.54,
+    "profit": 0.15,
+    "roi": 0.1003,
+    "hit_rate": 0.518,
+    "avg_odds": 2.42,
+    "fair_roi": -0.0421,
+    "roi_ci95": [
+     -0.0466,
+     0.2576
+    ],
+    "p_profit_le_0": 0.093,
+    "bankroll_x": 1.155,
+    "max_drawdown": 0.04
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "kelly_0.25_edge>0.00",
+   "dev": {
+    "bets": 2385,
+    "staked": 183.14,
+    "profit": 7.97,
+    "roi": 0.0435,
+    "hit_rate": 0.599,
+    "avg_odds": 1.94,
+    "fair_roi": -0.0392,
+    "roi_ci95": [
+     -0.003,
+     0.0918
+    ],
+    "p_profit_le_0": 0.03,
+    "bankroll_x": 8.975,
+    "max_drawdown": 0.343
+   },
+   "test": {
+    "bets": 703,
+    "staked": 12.06,
+    "profit": 0.5,
+    "roi": 0.0411,
+    "hit_rate": 0.592,
+    "avg_odds": 1.95,
+    "fair_roi": -0.0432,
+    "roi_ci95": [
+     -0.0304,
+     0.1146
+    ],
+    "p_profit_le_0": 0.141,
+    "bankroll_x": 1.496,
+    "max_drawdown": 0.161
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "kelly_0.25_edge>0.05",
+   "dev": {
+    "bets": 904,
+    "staked": 56.8,
+    "profit": 2.98,
+    "roi": 0.0525,
+    "hit_rate": 0.532,
+    "avg_odds": 2.25,
+    "fair_roi": -0.0381,
+    "roi_ci95": [
+     -0.0131,
+     0.1187
+    ],
+    "p_profit_le_0": 0.058,
+    "bankroll_x": 3.982,
+    "max_drawdown": 0.395
+   },
+   "test": {
+    "bets": 168,
+    "staked": 4.51,
+    "profit": 0.41,
+    "roi": 0.0915,
+    "hit_rate": 0.518,
+    "avg_odds": 2.42,
+    "fair_roi": -0.0421,
+    "roi_ci95": [
+     -0.052,
+     0.239
+    ],
+    "p_profit_le_0": 0.113,
+    "bankroll_x": 1.413,
+    "max_drawdown": 0.099
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "kelly_0.5_edge>0.00",
+   "dev": {
+    "bets": 2385,
+    "staked": 865.33,
+    "profit": 27.4,
+    "roi": 0.0317,
+    "hit_rate": 0.599,
+    "avg_odds": 1.94,
+    "fair_roi": -0.0398,
+    "roi_ci95": [
+     -0.0177,
+     0.0825
+    ],
+    "p_profit_le_0": 0.11,
+    "bankroll_x": 28.395,
+    "max_drawdown": 0.515
+   },
+   "test": {
+    "bets": 703,
+    "staked": 27.47,
+    "profit": 0.91,
+    "roi": 0.0333,
+    "hit_rate": 0.592,
+    "avg_odds": 1.95,
+    "fair_roi": -0.0432,
+    "roi_ci95": [
+     -0.0365,
+     0.1043
+    ],
+    "p_profit_le_0": 0.19,
+    "bankroll_x": 1.915,
+    "max_drawdown": 0.286
+   }
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "kelly_0.5_edge>0.05",
+   "dev": {
+    "bets": 904,
+    "staked": 170.89,
+    "profit": 6.92,
+    "roi": 0.0405,
+    "hit_rate": 0.532,
+    "avg_odds": 2.25,
+    "fair_roi": -0.0384,
+    "roi_ci95": [
+     -0.036,
+     0.1205
+    ],
+    "p_profit_le_0": 0.137,
+    "bankroll_x": 7.925,
+    "max_drawdown": 0.605
+   },
+   "test": {
+    "bets": 168,
+    "staked": 9.15,
+    "profit": 0.77,
+    "roi": 0.084,
+    "hit_rate": 0.518,
+    "avg_odds": 2.42,
+    "fair_roi": -0.0418,
+    "roi_ci95": [
+     -0.0614,
+     0.2373
+    ],
+    "p_profit_le_0": 0.144,
+    "bankroll_x": 1.769,
+    "max_drawdown": 0.189
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "kelly_0.1_edge>0.00",
+   "dev": {
+    "bets": 3127,
+    "staked": 71.02,
+    "profit": 5.2,
+    "roi": 0.0732,
+    "hit_rate": 0.592,
+    "avg_odds": 2.01,
+    "fair_roi": -0.0097,
+    "roi_ci95": [
+     0.033,
+     0.1125
+    ],
+    "p_profit_le_0": 0.0,
+    "bankroll_x": 6.196,
+    "max_drawdown": 0.181
+   },
+   "test": {
+    "bets": 1195,
+    "staked": 11.35,
+    "profit": 0.73,
+    "roi": 0.0642,
+    "hit_rate": 0.6,
+    "avg_odds": 2.1,
+    "fair_roi": -0.012,
+    "roi_ci95": [
+     0.0089,
+     0.1204
+    ],
+    "p_profit_le_0": 0.008,
+    "bankroll_x": 1.729,
+    "max_drawdown": 0.113
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "kelly_0.1_edge>0.05",
+   "dev": {
+    "bets": 1473,
+    "staked": 37.63,
+    "profit": 3.41,
+    "roi": 0.0906,
+    "hit_rate": 0.542,
+    "avg_odds": 2.27,
+    "fair_roi": -0.0047,
+    "roi_ci95": [
+     0.0369,
+     0.1433
+    ],
+    "p_profit_le_0": 0.0,
+    "bankroll_x": 4.409,
+    "max_drawdown": 0.153
+   },
+   "test": {
+    "bets": 443,
+    "staked": 5.17,
+    "profit": 0.43,
+    "roi": 0.0841,
+    "hit_rate": 0.485,
+    "avg_odds": 2.58,
+    "fair_roi": -0.0025,
+    "roi_ci95": [
+     -0.0109,
+     0.1847
+    ],
+    "p_profit_le_0": 0.044,
+    "bankroll_x": 1.435,
+    "max_drawdown": 0.101
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "kelly_0.25_edge>0.00",
+   "dev": {
+    "bets": 3127,
+    "staked": 953.61,
+    "profit": 57.92,
+    "roi": 0.0607,
+    "hit_rate": 0.592,
+    "avg_odds": 2.01,
+    "fair_roi": -0.0072,
+    "roi_ci95": [
+     0.0149,
+     0.1065
+    ],
+    "p_profit_le_0": 0.004,
+    "bankroll_x": 58.918,
+    "max_drawdown": 0.397
+   },
+   "test": {
+    "bets": 1195,
+    "staked": 50.8,
+    "profit": 2.69,
+    "roi": 0.0529,
+    "hit_rate": 0.6,
+    "avg_odds": 2.1,
+    "fair_roi": -0.0123,
+    "roi_ci95": [
+     -0.0022,
+     0.1126
+    ],
+    "p_profit_le_0": 0.033,
+    "bankroll_x": 3.69,
+    "max_drawdown": 0.261
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "kelly_0.25_edge>0.05",
+   "dev": {
+    "bets": 1473,
+    "staked": 360.72,
+    "profit": 26.86,
+    "roi": 0.0745,
+    "hit_rate": 0.542,
+    "avg_odds": 2.27,
+    "fair_roi": -0.001,
+    "roi_ci95": [
+     0.015,
+     0.1371
+    ],
+    "p_profit_le_0": 0.007,
+    "bankroll_x": 27.864,
+    "max_drawdown": 0.351
+   },
+   "test": {
+    "bets": 443,
+    "staked": 19.12,
+    "profit": 1.38,
+    "roi": 0.0724,
+    "hit_rate": 0.485,
+    "avg_odds": 2.58,
+    "fair_roi": -0.0024,
+    "roi_ci95": [
+     -0.0236,
+     0.1756
+    ],
+    "p_profit_le_0": 0.07,
+    "bankroll_x": 2.383,
+    "max_drawdown": 0.229
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "kelly_0.5_edge>0.00",
+   "dev": {
+    "bets": 3127,
+    "staked": 3327.09,
+    "profit": 165.74,
+    "roi": 0.0498,
+    "hit_rate": 0.592,
+    "avg_odds": 2.01,
+    "fair_roi": -0.0069,
+    "roi_ci95": [
+     -0.0021,
+     0.1006
+    ],
+    "p_profit_le_0": 0.027,
+    "bankroll_x": 166.74,
+    "max_drawdown": 0.511
+   },
+   "test": {
+    "bets": 1195,
+    "staked": 106.02,
+    "profit": 4.1,
+    "roi": 0.0386,
+    "hit_rate": 0.6,
+    "avg_odds": 2.1,
+    "fair_roi": -0.0119,
+    "roi_ci95": [
+     -0.0276,
+     0.1075
+    ],
+    "p_profit_le_0": 0.124,
+    "bankroll_x": 5.098,
+    "max_drawdown": 0.464
+   }
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "kelly_0.5_edge>0.05",
+   "dev": {
+    "bets": 1473,
+    "staked": 1924.64,
+    "profit": 120.01,
+    "roi": 0.0624,
+    "hit_rate": 0.542,
+    "avg_odds": 2.27,
+    "fair_roi": 0.0013,
+    "roi_ci95": [
+     -0.0118,
+     0.137
+    ],
+    "p_profit_le_0": 0.051,
+    "bankroll_x": 121.008,
+    "max_drawdown": 0.485
+   },
+   "test": {
+    "bets": 443,
+    "staked": 42.94,
+    "profit": 2.03,
+    "roi": 0.0472,
+    "hit_rate": 0.485,
+    "avg_odds": 2.58,
+    "fair_roi": -0.0002,
+    "roi_ci95": [
+     -0.0649,
+     0.1579
+    ],
+    "p_profit_le_0": 0.216,
+    "bankroll_x": 3.026,
+    "max_drawdown": 0.463
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "kelly_0.1_edge>0.00",
+   "dev": {
+    "bets": 2622,
+    "staked": 199.77,
+    "profit": 25.01,
+    "roi": 0.1252,
+    "hit_rate": 0.638,
+    "avg_odds": 1.85,
+    "fair_roi": 0.0367,
+    "roi_ci95": [
+     0.0784,
+     0.1714
+    ],
+    "p_profit_le_0": 0.0,
+    "bankroll_x": 26.007,
+    "max_drawdown": 0.169
+   },
+   "test": {
+    "bets": 1053,
+    "staked": 21.26,
+    "profit": 2.17,
+    "roi": 0.102,
+    "hit_rate": 0.638,
+    "avg_odds": 1.89,
+    "fair_roi": 0.0515,
+    "roi_ci95": [
+     0.0471,
+     0.1573
+    ],
+    "p_profit_le_0": 0.0,
+    "bankroll_x": 3.167,
+    "max_drawdown": 0.126
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "kelly_0.1_edge>0.05",
+   "dev": {
+    "bets": 1382,
+    "staked": 114.82,
+    "profit": 16.89,
+    "roi": 0.1471,
+    "hit_rate": 0.628,
+    "avg_odds": 1.96,
+    "fair_roi": 0.0526,
+    "roi_ci95": [
+     0.0947,
+     0.1994
+    ],
+    "p_profit_le_0": 0.0,
+    "bankroll_x": 17.888,
+    "max_drawdown": 0.142
+   },
+   "test": {
+    "bets": 552,
+    "staked": 14.3,
+    "profit": 1.87,
+    "roi": 0.1308,
+    "hit_rate": 0.598,
+    "avg_odds": 2.08,
+    "fair_roi": 0.0768,
+    "roi_ci95": [
+     0.0574,
+     0.2024
+    ],
+    "p_profit_le_0": 0.001,
+    "bankroll_x": 2.871,
+    "max_drawdown": 0.13
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "kelly_0.25_edge>0.00",
+   "dev": {
+    "bets": 2622,
+    "staked": 9426.81,
+    "profit": 1026.57,
+    "roi": 0.1089,
+    "hit_rate": 0.638,
+    "avg_odds": 1.85,
+    "fair_roi": 0.0333,
+    "roi_ci95": [
+     0.053,
+     0.1615
+    ],
+    "p_profit_le_0": 0.0,
+    "bankroll_x": 1027.569,
+    "max_drawdown": 0.368
+   },
+   "test": {
+    "bets": 1053,
+    "staked": 123.64,
+    "profit": 9.17,
+    "roi": 0.0741,
+    "hit_rate": 0.638,
+    "avg_odds": 1.89,
+    "fair_roi": 0.0505,
+    "roi_ci95": [
+     0.0074,
+     0.1414
+    ],
+    "p_profit_le_0": 0.015,
+    "bankroll_x": 10.167,
+    "max_drawdown": 0.281
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "kelly_0.25_edge>0.05",
+   "dev": {
+    "bets": 1382,
+    "staked": 4167.41,
+    "profit": 538.02,
+    "roi": 0.1291,
+    "hit_rate": 0.628,
+    "avg_odds": 1.96,
+    "fair_roi": 0.0535,
+    "roi_ci95": [
+     0.0624,
+     0.2019
+    ],
+    "p_profit_le_0": 0.0,
+    "bankroll_x": 539.016,
+    "max_drawdown": 0.304
+   },
+   "test": {
+    "bets": 552,
+    "staked": 85.91,
+    "profit": 8.7,
+    "roi": 0.1013,
+    "hit_rate": 0.598,
+    "avg_odds": 2.08,
+    "fair_roi": 0.0798,
+    "roi_ci95": [
+     0.0141,
+     0.1822
+    ],
+    "p_profit_le_0": 0.012,
+    "bankroll_x": 9.704,
+    "max_drawdown": 0.301
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "kelly_0.5_edge>0.00",
+   "dev": {
+    "bets": 2622,
+    "staked": 40001.76,
+    "profit": 3890.56,
+    "roi": 0.0973,
+    "hit_rate": 0.638,
+    "avg_odds": 1.85,
+    "fair_roi": 0.0303,
+    "roi_ci95": [
+     0.0338,
+     0.1603
+    ],
+    "p_profit_le_0": 0.004,
+    "bankroll_x": 3891.562,
+    "max_drawdown": 0.479
+   },
+   "test": {
+    "bets": 1053,
+    "staked": 188.37,
+    "profit": 11.52,
+    "roi": 0.0612,
+    "hit_rate": 0.638,
+    "avg_odds": 1.89,
+    "fair_roi": 0.0494,
+    "roi_ci95": [
+     -0.0147,
+     0.1389
+    ],
+    "p_profit_le_0": 0.066,
+    "bankroll_x": 12.523,
+    "max_drawdown": 0.432
+   }
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "kelly_0.5_edge>0.05",
+   "dev": {
+    "bets": 1382,
+    "staked": 21035.92,
+    "profit": 2347.44,
+    "roi": 0.1116,
+    "hit_rate": 0.628,
+    "avg_odds": 1.96,
+    "fair_roi": 0.0552,
+    "roi_ci95": [
+     0.0223,
+     0.2004
+    ],
+    "p_profit_le_0": 0.004,
+    "bankroll_x": 2348.438,
+    "max_drawdown": 0.379
+   },
+   "test": {
+    "bets": 552,
+    "staked": 137.92,
+    "profit": 10.44,
+    "roi": 0.0757,
+    "hit_rate": 0.598,
+    "avg_odds": 2.08,
+    "fair_roi": 0.0876,
+    "roi_ci95": [
+     -0.0214,
+     0.1764
+    ],
+    "p_profit_le_0": 0.065,
+    "bankroll_x": 11.44,
+    "max_drawdown": 0.471
+   }
+  }
+ ],
+ "per_year": [
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2016,
+   "bets": 148,
+   "staked": 148.0,
+   "profit": 23.0,
+   "roi": 0.1554,
+   "hit_rate": 0.595,
+   "avg_odds": 2.13,
+   "fair_roi": -0.0359
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2017,
+   "bets": 130,
+   "staked": 130.0,
+   "profit": 6.97,
+   "roi": 0.0537,
+   "hit_rate": 0.485,
+   "avg_odds": 2.46,
+   "fair_roi": -0.0349
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2018,
+   "bets": 111,
+   "staked": 111.0,
+   "profit": 11.66,
+   "roi": 0.1051,
+   "hit_rate": 0.532,
+   "avg_odds": 2.28,
+   "fair_roi": -0.037
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2019,
+   "bets": 143,
+   "staked": 143.0,
+   "profit": -0.1,
+   "roi": -0.0007,
+   "hit_rate": 0.503,
+   "avg_odds": 2.1,
+   "fair_roi": -0.0379
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2020,
+   "bets": 104,
+   "staked": 104.0,
+   "profit": 21.61,
+   "roi": 0.2077,
+   "hit_rate": 0.596,
+   "avg_odds": 2.19,
+   "fair_roi": -0.0391
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2021,
+   "bets": 96,
+   "staked": 96.0,
+   "profit": 15.45,
+   "roi": 0.1609,
+   "hit_rate": 0.552,
+   "avg_odds": 2.19,
+   "fair_roi": -0.0411
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2022,
+   "bets": 99,
+   "staked": 99.0,
+   "profit": -1.3,
+   "roi": -0.0131,
+   "hit_rate": 0.455,
+   "avg_odds": 2.39,
+   "fair_roi": -0.0381
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2023,
+   "bets": 73,
+   "staked": 73.0,
+   "profit": 10.62,
+   "roi": 0.1455,
+   "hit_rate": 0.534,
+   "avg_odds": 2.3,
+   "fair_roi": -0.0376
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2024,
+   "bets": 71,
+   "staked": 71.0,
+   "profit": 2.38,
+   "roi": 0.0335,
+   "hit_rate": 0.479,
+   "avg_odds": 2.53,
+   "fair_roi": -0.0417
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2025,
+   "bets": 46,
+   "staked": 46.0,
+   "profit": 18.01,
+   "roi": 0.3915,
+   "hit_rate": 0.609,
+   "avg_odds": 2.37,
+   "fair_roi": -0.0428
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2026,
+   "bets": 51,
+   "staked": 51.0,
+   "profit": -3.48,
+   "roi": -0.0682,
+   "hit_rate": 0.49,
+   "avg_odds": 2.32,
+   "fair_roi": -0.0397
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2016,
+   "bets": 169,
+   "staked": 169.0,
+   "profit": 26.39,
+   "roi": 0.1561,
+   "hit_rate": 0.592,
+   "avg_odds": 2.13,
+   "fair_roi": -0.024
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2017,
+   "bets": 165,
+   "staked": 165.0,
+   "profit": 8.33,
+   "roi": 0.0505,
+   "hit_rate": 0.491,
+   "avg_odds": 2.44,
+   "fair_roi": -0.0226
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2018,
+   "bets": 143,
+   "staked": 143.0,
+   "profit": 20.32,
+   "roi": 0.1421,
+   "hit_rate": 0.559,
+   "avg_odds": 2.27,
+   "fair_roi": -0.0191
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2019,
+   "bets": 212,
+   "staked": 212.0,
+   "profit": 20.21,
+   "roi": 0.0953,
+   "hit_rate": 0.561,
+   "avg_odds": 2.12,
+   "fair_roi": -0.012
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2020,
+   "bets": 167,
+   "staked": 167.0,
+   "profit": 21.45,
+   "roi": 0.1284,
+   "hit_rate": 0.569,
+   "avg_odds": 2.21,
+   "fair_roi": -0.013
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2021,
+   "bets": 229,
+   "staked": 229.0,
+   "profit": 24.49,
+   "roi": 0.1069,
+   "hit_rate": 0.568,
+   "avg_odds": 2.12,
+   "fair_roi": 0.0029
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2022,
+   "bets": 209,
+   "staked": 209.0,
+   "profit": 17.37,
+   "roi": 0.0831,
+   "hit_rate": 0.474,
+   "avg_odds": 2.49,
+   "fair_roi": 0.0186
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2023,
+   "bets": 179,
+   "staked": 179.0,
+   "profit": 30.01,
+   "roi": 0.1677,
+   "hit_rate": 0.531,
+   "avg_odds": 2.4,
+   "fair_roi": 0.0101
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2024,
+   "bets": 160,
+   "staked": 160.0,
+   "profit": -2.37,
+   "roi": -0.0148,
+   "hit_rate": 0.469,
+   "avg_odds": 2.61,
+   "fair_roi": 0.0045
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2025,
+   "bets": 127,
+   "staked": 127.0,
+   "profit": 36.79,
+   "roi": 0.2897,
+   "hit_rate": 0.575,
+   "avg_odds": 2.52,
+   "fair_roi": 0.0057
+  },
+  {
+   "price": "close_best",
+   "model": "p_close",
+   "strategy": "value>0.05",
+   "year": 2026,
+   "bets": 156,
+   "staked": 156.0,
+   "profit": -32.57,
+   "roi": -0.2088,
+   "hit_rate": 0.429,
+   "avg_odds": 2.61,
+   "fair_roi": 0.0153
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2016,
+   "bets": 124,
+   "staked": 124.0,
+   "profit": 22.27,
+   "roi": 0.1796,
+   "hit_rate": 0.661,
+   "avg_odds": 1.82,
+   "fair_roi": -0.0113
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2017,
+   "bets": 122,
+   "staked": 122.0,
+   "profit": 23.26,
+   "roi": 0.1907,
+   "hit_rate": 0.656,
+   "avg_odds": 1.93,
+   "fair_roi": -0.0228
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2018,
+   "bets": 124,
+   "staked": 124.0,
+   "profit": 24.66,
+   "roi": 0.1988,
+   "hit_rate": 0.629,
+   "avg_odds": 2.08,
+   "fair_roi": 0.1173
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2019,
+   "bets": 170,
+   "staked": 170.0,
+   "profit": 18.9,
+   "roi": 0.1112,
+   "hit_rate": 0.606,
+   "avg_odds": 1.91,
+   "fair_roi": 0.0278
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2020,
+   "bets": 195,
+   "staked": 195.0,
+   "profit": 39.61,
+   "roi": 0.2031,
+   "hit_rate": 0.646,
+   "avg_odds": 1.99,
+   "fair_roi": 0.0627
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2021,
+   "bets": 258,
+   "staked": 258.0,
+   "profit": 42.68,
+   "roi": 0.1654,
+   "hit_rate": 0.628,
+   "avg_odds": 1.94,
+   "fair_roi": 0.0603
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2022,
+   "bets": 221,
+   "staked": 221.0,
+   "profit": 13.23,
+   "roi": 0.0599,
+   "hit_rate": 0.588,
+   "avg_odds": 1.97,
+   "fair_roi": 0.051
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2023,
+   "bets": 168,
+   "staked": 168.0,
+   "profit": 40.37,
+   "roi": 0.2403,
+   "hit_rate": 0.637,
+   "avg_odds": 2.03,
+   "fair_roi": 0.0752
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2024,
+   "bets": 195,
+   "staked": 195.0,
+   "profit": 19.3,
+   "roi": 0.099,
+   "hit_rate": 0.59,
+   "avg_odds": 2.06,
+   "fair_roi": 0.0791
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2025,
+   "bets": 158,
+   "staked": 158.0,
+   "profit": 35.22,
+   "roi": 0.2229,
+   "hit_rate": 0.658,
+   "avg_odds": 2.04,
+   "fair_roi": 0.0536
+  },
+  {
+   "price": "open",
+   "model": "p_open",
+   "strategy": "value>0.05",
+   "year": 2026,
+   "bets": 199,
+   "staked": 199.0,
+   "profit": 10.04,
+   "roi": 0.0505,
+   "hit_rate": 0.558,
+   "avg_odds": 2.14,
+   "fair_roi": 0.1136
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2016,
+   "bets": 483,
+   "staked": 483.0,
+   "profit": -18.43,
+   "roi": -0.0382,
+   "hit_rate": 0.638,
+   "avg_odds": 1.55,
+   "fair_roi": -0.0358
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2017,
+   "bets": 444,
+   "staked": 444.0,
+   "profit": 2.17,
+   "roi": 0.0049,
+   "hit_rate": 0.68,
+   "avg_odds": 1.5,
+   "fair_roi": -0.0353
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2018,
+   "bets": 468,
+   "staked": 468.0,
+   "profit": -30.47,
+   "roi": -0.0651,
+   "hit_rate": 0.639,
+   "avg_odds": 1.52,
+   "fair_roi": -0.0365
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2019,
+   "bets": 498,
+   "staked": 498.0,
+   "profit": -22.95,
+   "roi": -0.0461,
+   "hit_rate": 0.637,
+   "avg_odds": 1.53,
+   "fair_roi": -0.039
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2020,
+   "bets": 442,
+   "staked": 442.0,
+   "profit": -1.1,
+   "roi": -0.0025,
+   "hit_rate": 0.672,
+   "avg_odds": 1.51,
+   "fair_roi": -0.0391
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2021,
+   "bets": 489,
+   "staked": 489.0,
+   "profit": -15.37,
+   "roi": -0.0314,
+   "hit_rate": 0.648,
+   "avg_odds": 1.53,
+   "fair_roi": -0.0429
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2022,
+   "bets": 499,
+   "staked": 499.0,
+   "profit": -11.14,
+   "roi": -0.0223,
+   "hit_rate": 0.669,
+   "avg_odds": 1.5,
+   "fair_roi": -0.0417
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2023,
+   "bets": 497,
+   "staked": 497.0,
+   "profit": -3.75,
+   "roi": -0.0076,
+   "hit_rate": 0.682,
+   "avg_odds": 1.48,
+   "fair_roi": -0.0426
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2024,
+   "bets": 509,
+   "staked": 509.0,
+   "profit": 8.5,
+   "roi": 0.0167,
+   "hit_rate": 0.709,
+   "avg_odds": 1.46,
+   "fair_roi": -0.0446
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2025,
+   "bets": 501,
+   "staked": 501.0,
+   "profit": -16.06,
+   "roi": -0.0321,
+   "hit_rate": 0.687,
+   "avg_odds": 1.45,
+   "fair_roi": -0.0447
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "favourite",
+   "year": 2026,
+   "bets": 473,
+   "staked": 473.0,
+   "profit": 7.08,
+   "roi": 0.015,
+   "hit_rate": 0.71,
+   "avg_odds": 1.45,
+   "fair_roi": -0.0441
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2016,
+   "bets": 54,
+   "staked": 54.0,
+   "profit": 7.56,
+   "roi": 0.14,
+   "hit_rate": 0.556,
+   "avg_odds": 2.03,
+   "fair_roi": -0.0416
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2017,
+   "bets": 41,
+   "staked": 41.0,
+   "profit": 7.81,
+   "roi": 0.1904,
+   "hit_rate": 0.585,
+   "avg_odds": 2.05,
+   "fair_roi": -0.0414
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2018,
+   "bets": 28,
+   "staked": 28.0,
+   "profit": 3.85,
+   "roi": 0.1376,
+   "hit_rate": 0.571,
+   "avg_odds": 2.01,
+   "fair_roi": -0.0437
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2019,
+   "bets": 31,
+   "staked": 31.0,
+   "profit": -5.16,
+   "roi": -0.1664,
+   "hit_rate": 0.419,
+   "avg_odds": 2.01,
+   "fair_roi": -0.0437
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2020,
+   "bets": 22,
+   "staked": 22.0,
+   "profit": 0.21,
+   "roi": 0.0096,
+   "hit_rate": 0.5,
+   "avg_odds": 2.04,
+   "fair_roi": -0.0442
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2021,
+   "bets": 32,
+   "staked": 32.0,
+   "profit": 8.0,
+   "roi": 0.2499,
+   "hit_rate": 0.625,
+   "avg_odds": 2.01,
+   "fair_roi": -0.0444
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2022,
+   "bets": 24,
+   "staked": 24.0,
+   "profit": 4.78,
+   "roi": 0.1991,
+   "hit_rate": 0.583,
+   "avg_odds": 2.05,
+   "fair_roi": -0.0406
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2023,
+   "bets": 21,
+   "staked": 21.0,
+   "profit": -3.13,
+   "roi": -0.1489,
+   "hit_rate": 0.429,
+   "avg_odds": 2.0,
+   "fair_roi": -0.0418
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2024,
+   "bets": 17,
+   "staked": 17.0,
+   "profit": -0.83,
+   "roi": -0.0486,
+   "hit_rate": 0.471,
+   "avg_odds": 2.03,
+   "fair_roi": -0.045
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2025,
+   "bets": 19,
+   "staked": 19.0,
+   "profit": 3.2,
+   "roi": 0.1683,
+   "hit_rate": 0.579,
+   "avg_odds": 1.99,
+   "fair_roi": -0.0458
+  },
+  {
+   "price": "close_mid",
+   "model": "p_close",
+   "strategy": "pick_underdog",
+   "year": 2026,
+   "bets": 19,
+   "staked": 19.0,
+   "profit": 0.77,
+   "roi": 0.0406,
+   "hit_rate": 0.526,
+   "avg_odds": 1.98,
+   "fair_roi": -0.0447
+  }
+ ]
+}

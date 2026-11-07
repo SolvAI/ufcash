@@ -1,0 +1,7 @@
+# Bouts to predict. red = first-listed fighter. Names as on ufcstats.com (debutants matched by Sherdog name).
+# weight_class like "Lightweight" or "Women's Flyweight"; rounds 3 or 5; title 0/1; odds = American moneyline (optional, strongly recommended).
+# The rows below are HYPOTHETICAL demo matchups, not announced bouts - replace them with a real card.
+date,red,blue,weight_class,rounds,title,card_pos,red_odds,blue_odds
+2026-12-12,Marvin Vettori,Roman Kopylov,Middleweight,3,0,0,-120,100
+2026-12-12,Payton Talbott,Marcus McGhee,Bantamweight,3,0,1,,
+2026-12-12,Johnny Walker,Anthony Wint,Heavyweight,3,0,2,150,-175

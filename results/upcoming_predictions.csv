@@ -1,0 +1,4 @@
+date,red,blue,weight_class,market_p_red,stats_p_red,model_p_red,pick,confidence,red_ufc_fights,blue_ufc_fights
+2026-12-12,Marvin Vettori,Roman Kopylov,Middleweight,0.522,0.532,0.541,Marvin Vettori,0.541,19,13
+2026-12-12,Payton Talbott,Marcus McGhee,Bantamweight,,0.815,0.815,Payton Talbott,0.815,7,7
+2026-12-12,Johnny Walker,Anthony Wint,Heavyweight,0.386,0.454,0.388,Anthony Wint,0.612,17,2

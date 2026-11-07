@@ -1,0 +1,7 @@
+# data is never committed: ./run_pipeline.sh --refresh downloads it
+data/*
+!data/upcoming.csv
+__pycache__/
+*.pyc
+catboost_info/
+results/betting_bets_test.csv
